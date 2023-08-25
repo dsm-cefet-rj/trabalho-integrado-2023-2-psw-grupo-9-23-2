@@ -1,0 +1,127 @@
+body{
+    margin: 0px;
+}
+
+/*  ------------------------------------------          TOPO      -------------------------------------------------  */
+
+#topo{
+    background-color: orange;
+    margin-top: -21px;
+
+    height: 80px ;
+
+    position:relative
+}
+
+#link_perfil{
+
+    border:1px solid black;
+
+    position: absolute;
+    top:20px;
+    left: 1220px;
+}
+
+
+
+/* ----------------------------------------   CORPO  ----------------------        */
+
+
+#corpo{
+    background-color: rgb(231, 231, 231);
+    
+    height: 539px;
+
+    position: relative;
+}
+
+
+#links{
+    /*border: 1px solid black;*/
+    position:relative;
+    top:100px;
+    left:250px;
+
+    width: 850px;
+    height: 400px;
+
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.carros{
+    background-color: rgb(226, 224, 224);
+    width: 300px;
+    height: 380px;
+    transition: .3s ease-in-out ;
+}
+
+.carros:hover{
+    box-shadow: 3px 3px 3px rgb(78, 78, 78);
+}
+
+/*card do seminovo*/
+#card_seminovo{
+    
+    position:relative;
+    
+}
+#card_seminovo img{
+    position: absolute;
+    top:20px;
+    left: 22px;
+    width: 250px;
+    height: 200px;
+    z-index:3;
+    transition: .5s ease-in-out ;
+}
+#card_seminovo a{
+    position:absolute;
+    display: block;
+    width: 300px;
+    height: 380px;
+    z-index:4;
+}
+#card_seminovo p{
+    position: absolute;
+    left: 110px;
+    bottom: 40px;
+    
+}
+
+
+
+
+
+/*card do antigo*/
+#card_antigo{
+    
+    position:relative;
+    
+}
+#card_antigo img{
+    position: absolute;
+    top:20px;
+    left: 22px;
+    width: 250px;
+    height: 200px;
+    z-index:3;
+    
+}
+#card_antigo a{
+    position:absolute;
+    display: block;
+    width: 300px;
+    height: 380px;
+    z-index:4;
+}
+
+#card_antigo p{
+    position: absolute;
+    left: 125px;
+    bottom: 40px;
+    
+}
+
