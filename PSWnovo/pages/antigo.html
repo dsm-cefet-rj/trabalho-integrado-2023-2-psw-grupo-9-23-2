@@ -1,12 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/antigo.css">
+  <link rel="stylesheet" href="/bootstrap-5.3.1-dist/css/bootstrap.css">
 </head>
+
 <body>
-    <h1>Tela de antigo</h1>
-    <a href="../home.html">voltar</a>
+
+  <div id="topo" class="container-fluid">
+    <div class="row">
+      <div class="col-sm-4">
+        <a href=../index.html>
+          <img src="/img/MyFriendsTitulo.png" class="w-25">
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="filtros" class="col-sm-3">
+    <h3>Filtros</h3><br>
+  </div>
+
+  <div class="row">
+    <div id="escolha" class="col-sm-3">
+      <form>
+        <label for="campo_kilometragem">Kilometragem:</label>
+        <br>
+        <input id="campo_kilometragem" type="range">
+        <br>
+        <label for="campo_preco">Preço:</label>
+        <br>
+        <input id="campo_precp" type="range">
+        <br>
+        <label>Montadora:</label>
+        <br><br>
+        <input id="ford" type="checkbox" value="s_ford">
+        <label for="ford">Ford</label>
+
+        <input id="gm" type="checkbox" value="s_gm">
+        <label for="gm">GM</label>
+
+        <input id="volkswagen" type="checkbox" value="s_volkswagen">
+        <label for="volkswagen">Volkswagen </label>
+        <br><br>
+        <label>Condição do Carro:</label>
+        <br><br>
+        <input id="barn_find" type="checkbox" value="s_barn_find">
+        <label for="barn_find">Barn Find</label>
+
+        <input id="restaurado" type="checkbox" value="s_restaurado">
+        <label for="restaurado">Restaurado</label>
+
+        <input id="original" type="checkbox" value="s_original">
+        <label for="original">Original</label>
+        <br>
+        <input id="replica" type="checkbox" value="s_replica">
+        <label for="replica">Replica</label>
+
+        <br><br>
+        <label>Blindagem:</label>
+        <br><br>
+        <input id="blindagem_1" type="checkbox" value="s_blindagem_1">
+        <label for="blindagem_1">I</label>
+        <input id="blindagem_2" type="checkbox" value="s_blindagem_2">
+        <label for="blindagem_2">II</label>
+        <input id="blindagem_3" type="checkbox" value="s_blindagem_3">
+        <label for="blindagem_3">III</label>
+        <input id="blindagem_4" type="checkbox" value="s_blindagem_4">
+        <label for="blindagem_4">IV</label>
+        <input id="blindagem_5" type="checkbox" value="s_blindagem_5">
+        <label for="blindagem_5">V</label>
+
+        <br><br>
+        <label>Cor:</label>
+        <br><br>
+        <input id="azul" type="checkbox" value="s_azul">
+        <label for="azul">Azul</label>
+        <input id="vermelho" type="checkbox" value="s_vermelho">
+        <label for="vermelho">Vermelho</label>
+        <input id="Verde" type="checkbox" value="s_verde">
+        <label for="Verde">Verde</label>
+        <input id="Branco" type="checkbox" value="s_branco">
+        <label for="Branco">Branco</label>
+        <input id="Preto" type="checkbox" value="s_preto">
+        <label for="Preto">Preto</label>
+        <input id="Cinza" type="checkbox" value="s_cinza">
+        <label for="Cinza">Cinza</label>
+        <br><br>
+        <label>Airbag:</label>
+        <br><br>
+        <input name="airbag" type="radio" id="sim_airbag" value=s_airbag>
+        <label for="sim_airbag">Com</label>
+        <input name="airbag" type="radio" id="nao_airbag" value=n_airbag>
+        <label for="nao_airbag">Sem</label>
+        <br><br>
+        <label>Combustível:</label>
+        <br><br>
+        <input id="gasolina" type="checkbox" value="s_gasolina">
+        <label for="gasolina">Gasolina</label>
+        <input id="alcool" type="checkbox" value="s_alcool">
+        <label for="alcool">Álcool</label>
+        <input id="flex" type="checkbox" value="s_flex">
+        <label for="flex">Flex</label>
+        <input id="hibrido" type="checkbox" value="s_hibrido">
+        <label for="hibrido">Híbrido</label>
+        <input id="eletrico" type="checkbox" value="s_ eletrico">
+        <label for="eletrico">Elétrico</label>
+        <br><br>
+        <label>Câmbio:</label>
+        <br><br>
+        <input name="cambio" type="radio" id="sim_manual" value=s_manual>
+        <label for="sim_manual">Manual</label>
+        <input name="cambio" type="radio" id="sim_automatico" value=s_automatico>
+        <label for="sim_automatico">Automático</label>
+        <br><br>
+        <label>Ar-condicionado:</label>
+        <br><br>
+        <input name="ar" type="radio" id="sim_ar" value=s_ar>
+        <label for="sim_ar">Com</label>
+        <input name="ar" type="radio" id="nao_ar" value=n_ar>
+        <label for="nao_ar">Sem</label>
+        <br><br>
+        <label>Vidro Elétrico:</label>
+        <br><br>
+        <input name="vidroe" type="radio" id="sim_vidroe" value=s_vidroe>
+        <label for="sim_vidroe">Com</label>
+        <input name="vidroe" type="radio" id="nao_vidroe" value=n_vidroe>
+        <label for="nao_vidroe">Sem</label>
+        <br><br>
+        <label>Trava Elétrica:</label>
+        <br><br>
+        <input name="travae" type="radio" id="sim_travae" value=s_travae>
+        <label for="sim_travae">Com</label>
+        <input name="travae" type="radio" id="nao_travae" value=n_travae>
+        <label for="nao_travae">Sem</label>
+        <br><br>
+        <label>Direção:</label>
+        <br><br>
+        <input id="hidraulica" type="checkbox" value="s_hidraulica">
+        <label for="hidraulica">Hidráulica</label>
+        <input id="mecanica" type="checkbox" value="s_mecanica">
+        <label for="mecanica">Mecânica</label>
+        <input id="eletrica" type="checkbox" value="s_eletrica">
+        <label for="eletrica">Elétrica</label>
+        <br><br>
+        <label>Alarme:</label>
+        <br><br>
+        <input name="alarme" type="radio" id="sim_alarme" value=s_alarme>
+        <label for="sim_alarme">Com</label>
+        <input name="alarme" type="radio" id="nao_alarme" value=n_alarme>
+        <label for="nao_alarme">Sem</label>
+        <br><br>
+        <label>Rádio:</label>
+        <br><br>
+        <input name="radios" type="radio" id="sim_radio" value=s_radio>
+        <label for="sim_radio">Com</label>
+        <input name="radios" type="radio" id="nao_radio" value=n_radio>
+        <label for="nao_radio">Sem</label>
+        <br><br>
+        <label>Multimídia:</label>
+        <br><br>
+        <input name="multimidia" type="radio" id="sim_multimidia" value=s_multimidia>
+        <label for="sim_multimidia">Com</label>
+        <input name="multimidia" type="radio" id="nao_multimidia" value=n_multimidia>
+        <label for="nao_multimidia">Sem</label>
+        <br><br>
+        <label>Alarme de ré:</label>
+        <br><br>
+        <input name="alarme_re" type="radio" id="sim_alarme_re" value=s_alarme_re>
+        <label for="sim_alarme_re">Com</label>
+        <input name="alarme_re" type="radio" id="nao_alarme_re" value=n_alarme_re>
+        <label for="nao_alarme_re">Sem</label>
+        <br><br>
+        <label>Câmera de ré:</label>
+        <br><br>
+        <input name="camera_re" type="radio" id="sim_camera_re" value=s_camera_re>
+        <label for="sim_alarme_re">Com</label>
+        <input name="camera_re" type="radio" id="nao_camera_re" value=n_camera_re>
+        <label for="nao_camera_re">Sem</label>
+        <br><br>
+        <label>Rastreador:</label>
+        <br><br>
+        <input name="rastreador" type="radio" id="sim_rastreador" value=s_rastreador>
+        <label for="sim_rastreador">Com</label>
+        <input name="rastreador" type="radio" id="nao_rastreador" value=n_rastreador>
+        <label for="nao_rastreador">Sem</label>
+
+
+
+
+      </form>
+
+    </div>
+
+    <div id="space-carros" class="col-sm-8 offset-1">
+
+      <div class="carro">
+        <img src="/img/antigo1.PNG">
+        <p>Fusca 1986</p>
+        <a href="escolha.html">Ver Detalhes</a>
+
+      </div>
+
+      <div class="carro">
+        <img src="/img/antigo2.PNG">
+        <p>Chevrolet Opala Standard</p>
+        <a href="">Ver Detalhes</a>
+      </div>
+
+      <div class="carro">
+        <img src="/img/antigo3.PNG">
+        <p>Ford Galaxie 500 </p>
+        <a href="">Ver Detalhes</a>
+
+      </div>
+
+      <div class="carro">
+        <img src="/img/antigo4.PNG">
+        <p>1996 Fusca Itamar</p>
+        <a href="">Ver Detalhes</a>
+      </div>
+
+      <div class="carro">
+        <img src="/img/antigo5.PNG">
+        <p>Ford Landau 1979 </p>
+        <a href="">Ver Detalhes</a>
+      </div>
+
+    </div>
+  </div>
 </body>
+
 </html>
