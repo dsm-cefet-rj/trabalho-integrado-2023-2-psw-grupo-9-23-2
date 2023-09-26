@@ -2,7 +2,10 @@ import Cabecalho from '../Layout/Cabecalho.jsx'
 import CardCarro from './CardCarro.jsx'
 import Formulario from '../Layout/Formulario.jsx'
 import '/bootstrap-5.3.1-dist/css/bootstrap.css'
-
+const CARROS=[
+  {nome:"Fusca 1994" ,imgLink:"public/Antigos/antigo1.PNG", km:"500", marca:"Positivo", valor:"R$30.000,00"},
+  {nome:"Mustang 1899" ,imgLink:"public/Antigos/antigo2.PNG", km:"500", marca:"Fiat", valor:"R$45.000,00"}
+]
 export default function AntigosApp() {
   return (
     <>

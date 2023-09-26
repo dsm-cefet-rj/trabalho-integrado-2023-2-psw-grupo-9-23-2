@@ -1,0 +1,1 @@
+{"version":2,"languages":{"nodejs-npm":{"specfileHash":"e2b671af5f1f97f519c1c2bd2ee937b2","lockfileHash":"17c2d3a2cd573fd7bec0b42aaf6ee90b","guessedImports":["vite","react-router-dom","redux","axios","react-dom","react-redux","@vitejs/plugin-react","@popperjs/core","file:","@reduxjs/toolkit","react"],"guessedImportsHash":"0f35b3c22d960d16bf1c456b42230a51"}}}

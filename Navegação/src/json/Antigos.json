@@ -1,0 +1,57 @@
+[
+  {
+    "nome": "Fusca 1994",
+    "imgLink": "public/Antigos/antigo1.PNG",
+    "km": "500",
+    "marca": "Positivo",
+    "valor": "R$30.000,00"
+  },
+  {
+    "nome": "Renault Kwid 2020",
+    "imgLink": "public/Seminovos/Semi2.PNG",
+    "km": "500",
+    "marca": "Renault",
+    "valor": "R$40.000,00"
+  },
+  {
+    "nome": "Ford Fiesta 2008",
+    "imgLink": "public/Seminovos/Semi3.PNG",
+    "km": "500",
+    "marca": "Ford",
+    "valor": "R$45.000,00"
+  },
+  {
+    "nome": "Fuscão Branco",
+    "imgLink": "public/Seminovos/Semi4.PNG",
+    "km": "500",
+    "marca": "Ford",
+    "valor": "R$60.000,00"
+  },
+  {
+    "nome": "BatMovel",
+    "imgLink": "public/Seminovos/Semi5.PNG",
+    "km": "500",
+    "marca": "Fiat",
+    "valor": "R$200.000,00"
+  },
+  {
+    "nome": "Brasilia 1985",
+    "imgLink": "public/Seminovos/Semi6.PNG",
+    "km": "500",
+    "marca": "Nokia",
+    "valor": "R$40.000,00"
+  },
+  {
+    "nome": "Marajo 1945",
+    "imgLink": "public/Seminovos/Semi7.PNG",
+    "km": "500",
+    "marca": "Volkswagen",
+    "valor": "R$50.000,00"
+  }
+
+
+]
+
+
+
+

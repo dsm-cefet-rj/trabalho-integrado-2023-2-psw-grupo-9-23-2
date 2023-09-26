@@ -1,0 +1,81 @@
+
+[
+  {     
+    "isAntigo": true,
+    "nome": "Fusca 1994",
+    "imgLink": "public/Antigos/antigo1.PNG",
+    "km": "800",
+    "marca": "Ford",
+    "valor": "30000"
+  },
+  {     
+    "isAntigo": true,
+    "nome": "Fiat uno 1994",
+    "imgLink": "public/Antigos/antigo3.PNG",
+    "km": "800",
+    "marca": "Ford",
+    "valor": "30000"
+  },
+  { 
+    "isAntigo": false,
+    "nome": "Renault Kwid 2020",
+    "imgLink": "public/Seminovos/Semi2.PNG",
+    "km": "500",
+    "marca": "Renault",
+    "valor": "40000"
+  },
+  { 
+    "isAntigo": false,
+    "nome": "Mercedes 2019",
+    "imgLink": "public/Seminovos/Semi4.PNG",
+    "km": "200",
+    "marca": "Mercedes",
+    "valor": "80000"
+  },
+  {
+    "isAntigo": false,
+    "nome": "Ford Fiesta 2008",
+    "imgLink": "public/Seminovos/Semi3.PNG",
+    "km": "350",
+    "marca": "Ford",
+    "valor": "45000"
+  },
+  {  
+    "isAntigo": true,
+    "nome": "BatMovel 1966",
+    "imgLink": "public/Antigos/antigo5 (1).PNG",
+    "km": "670",
+    "marca": "Ford",
+    "valor": "60000"
+  },
+  {
+    "isAntigo": false,
+    "nome": "Peugeot 2018",
+    "imgLink": "public/Seminovos/Semi5.PNG",
+    "km": "100",
+    "marca": "Peugeot",
+    "valor": "200000"
+  },
+  {
+    "isAntigo": true,
+    "nome": "Brasilia 1985",
+    "imgLink": "public/Seminovos/Semi6.PNG",
+    "km": "900",
+    "marca": "Brasilia",
+    "valor": "40000"
+  },
+  {
+    "isAntigo": true,
+    "nome": "Marajo 1945",
+    "imgLink": "public/Seminovos/Semi7.PNG",
+    "km": "275",
+    "marca": "Volkswagen",
+    "valor": "50000"
+  }
+
+
+]
+
+
+
+
