@@ -91,11 +91,12 @@
       "id": 10
     }
   ],
-  "mensagens":[
+  "horarios":[
     {
-      "Sender": "Carlos",
-      "Text": "Não fecho nesse preço não amigo.",
-      "Time": "14:08"
+      "isVago": true,
+      "data": "12/09",
+      "hora": "14:08"
   }
   ]
+  
 }
