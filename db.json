@@ -90,5 +90,12 @@
       "valor": "10000",
       "id": 10
     }
+  ],
+  "mensagens":[
+    {
+      "Sender": "Carlos",
+      "Text": "Não fecho nesse preço não amigo.",
+      "Time": "14:08"
+  }
   ]
 }

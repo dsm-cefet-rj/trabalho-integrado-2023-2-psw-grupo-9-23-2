@@ -1,1 +1,13 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=11600208&assignment_repo_type=AssignmentRepo)
+## Olá! Este é o respositório da MyFriends Cars!
+
+
+### Como iniciar?
+2 terminais, um para o json-server e um para o vite.
+- Em um terminal, digite "npm run dev"
+- No outro terminal, digite "yarn mock"
+
+### Tecnologias utilizadas:
+
+* HTML, CSS e JS
+* React
+* JSON- SERVER
