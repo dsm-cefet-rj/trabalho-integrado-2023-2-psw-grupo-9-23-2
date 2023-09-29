@@ -8,8 +8,7 @@ import ChatCarro from './JavaScr/carros/ChatCarro.jsx'
 import CriadorCarro from './JavaScr/carros/CriadorCarro'
 import UpdaterCarro from './JavaScr/carros/UpdaterCarro'
 import DeleterCarro from './JavaScr/carros/DeleterCarro'
-import Chat from './JavaScr/mensagens/ChatApp.jsx'
-
+import ListaAgendamentos from './JavaScr/agendamento/ListaAgendamentos.jsx'
 
 import Login from './DadosPessoais/Login.jsx'
 import Signin from './DadosPessoais/Signin.jsx'
@@ -35,7 +34,7 @@ export default function App() {
           <Route path="/CriadorCarro" element={<CriadorCarro />} />
           <Route path="/UpdaterCarro" element={<UpdaterCarro />} />
           <Route path="/DeleterCarro" element={<DeleterCarro />} />
-          <Route path="/ChatApp" element={<Chat />} />
+          <Route path="/Agendamentos" element={<ListaAgendamentos />} />
         </Routes>
     </>
   )
