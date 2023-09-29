@@ -17,7 +17,7 @@ export default function Cabecalho() {
           </div>
 
           <div className="col-md-8 col-sm-12 text-end">
-            <Link to="/ChatApp">
+            <Link to="/Agendamentos">
               <button className="btn btn-light">Meus Agendamentos</button>
             </Link>
 
