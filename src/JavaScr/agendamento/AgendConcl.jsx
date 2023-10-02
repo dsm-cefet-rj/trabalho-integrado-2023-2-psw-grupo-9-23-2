@@ -11,7 +11,7 @@ export default function AgendConcl() {
             <br></br>
             <h2>Agendamento Concluído!</h2>
             <br></br>
-            <h3>Em breve entraremos em contato</h3>
+            <h3>Em breve entraremos em contato com você.</h3>
           </div>
         </div>
 
