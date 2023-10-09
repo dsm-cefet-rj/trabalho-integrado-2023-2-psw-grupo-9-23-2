@@ -74,11 +74,11 @@
     },
     {
       "isAntigo": true,
-      "nome": "Marajo 1945",
-      "imgLink": "public/Seminovos/Semi7.PNG",
-      "km": "275",
-      "marca": "Volkswagen",
-      "valor": "50000",
+      "nome": "Marajo 1946",
+      "imgLink": "public/Antigos/antigo1.PNG",
+      "km": "",
+      "marca": "",
+      "valor": "",
       "id": 9
     },
     {
@@ -89,57 +89,54 @@
       "marca": "Volkswagen",
       "valor": "10000",
       "id": 10
+    },
+    {
+      "isAntigo": true,
+      "nome": "Renault Sandero 2010",
+      "imgLink": "public/Antigos/antigo1.PNG",
+      "km": "245",
+      "marca": "Renault",
+      "valor": "20000",
+      "id": 11
     }
   ],
-  "horarios":[
+  "horarios": [
     {
       "isOcupado": true,
       "data": "12/09",
       "hora": "14:08",
       "id": 1
-  },
-  { 
-    "isOcupado": false,
-    "dia":"02/10",
-    "hora":"09:15",
-    "id": 2
-    
-  },
-
-  { 
-    "isOcupado": false,
-    "dia":"02/10",
-    "hora":"09:30",
-    "id": 3
-   
-  },
-
-  { 
-    "isOcupado": false,
-    "dia":"09/10",
-    "hora":"09:15",
-    "id": 4
-    
-  },
-
-  {  
-    "isOcupado": false,
-    "dia":"16/10",
-    "hora":"08:30",
-    "id": 6
-    
-  },
-
-  {  
-    "isOcupado": false,
-    "dia":"16/10",
-    "hora":"10:30",
-    "id": 7
-    
-  }
+    },
+    {
+      "isOcupado": false,
+      "dia": "02/10",
+      "hora": "09:15",
+      "id": 2
+    },
+    {
+      "isOcupado": false,
+      "dia": "02/10",
+      "hora": "09:30",
+      "id": 3
+    },
+    {
+      "isOcupado": false,
+      "dia": "09/10",
+      "hora": "09:15",
+      "id": 4
+    },
+    {
+      "isOcupado": false,
+      "dia": "16/10",
+      "hora": "08:30",
+      "id": 6
+    },
+    {
+      "isOcupado": false,
+      "dia": "16/10",
+      "hora": "10:30",
+      "id": 7
+    }
   ],
-  "filtros":[
-
-  ]
-  
+  "filtros": []
 }
