@@ -138,5 +138,13 @@
       "id": 7
     }
   ],
-  "filtros": []
+  "filtros": [
+    {"marca": "Ford"},
+    {"marca": "Fiat"},
+    {"marca": "Volkswagen"},
+    {"marca": "Toyota"},
+    {"marca": "Brasilia"},
+    {"marca": "Renault"},
+    {"marca": "Peugeot"}
+  ]
 }

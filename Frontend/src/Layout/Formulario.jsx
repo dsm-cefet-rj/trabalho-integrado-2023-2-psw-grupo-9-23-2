@@ -1,18 +1,21 @@
 import '/bootstrap-5.3.1-dist/css/bootstrap.css'
-import {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 
 export default function Formulario(props)
 {
-  const marc = [
-    {marca: "Ford", id: "Ford"},
-    {marca: "Fiat", id: "Fiat"},
-    {marca: "Volkswagen", id: "Volk"},
-    {marca: "Toyota", id: "Toyo"},
-    {marca: "Brasilia", id: "Bras"},
-    {marca: "Renault", id: "Rena"},
-    {marca: "Peugeot", id: "Peug"},
-  ];
-const [marcas, setMarca] = useState(marc);
+  
+  const [marcas, setMarca] = useState([]);
+  
+  useEffect(() => {
+    fetch('http://localhost:8000/filtros')
+      .then((response) => response.json())
+      .then((data) => {
+        setMarca(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
   
   function addMarca(pro)
   {
@@ -21,9 +24,10 @@ const [marcas, setMarca] = useState(marc);
       alert("Essa marca já existe nos filtros!")
     }
     else{
-      const nova ={marca:pro, id: pro.substring(0,4)};
+      const nova ={marca:pro};
       const novaMarca=[...marcas, nova];
       setMarca(novaMarca);
+      
     }
     
   }
@@ -59,7 +63,7 @@ const [marcas, setMarca] = useState(marc);
       }
       else
       {
-        const nova = {marca: novo, id: novo.substring(0,4)};
+        const nova = {marca: novo};
         const novaMarcas = [...marcas, nova];
         setMarca(novaMarcas.filter((m) => m.marca != ant));
       }     
@@ -121,8 +125,8 @@ const [marcas, setMarca] = useState(marc);
         <br></br>
         {marcas.map((m) =>
       <>
-      <input id={m.id } type="checkbox" value={props.buscaMarca.includes(m.marca) ? props.buscaMarca.replace(m.marca,"") : props.buscaMarca + m.marca} onChange={(e) => {props.setBuscaMarca(e.target.value); props.buscaMarca = e.target.value}}></input>
-        <label for={m.id}>{m.marca}  </label>
+      <input id={m.marca } type="checkbox" value={props.buscaMarca.includes(m.marca) ? props.buscaMarca.replace(m.marca,"") : props.buscaMarca + m.marca} onChange={(e) => {props.setBuscaMarca(e.target.value); props.buscaMarca = e.target.value}}></input>
+        <label for={m.marca}>{m.marca}  </label>
       </>
       )}        
           </div>
