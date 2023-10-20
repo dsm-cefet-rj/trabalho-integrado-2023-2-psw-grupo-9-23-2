@@ -9,7 +9,7 @@ export default function AgendConcl() {
         <div className='row'>
           <div className="col text-center">
             <br></br>
-            <h2>Agendamento Concluído!</h2>
+            <h3>Agendamento Concluído!</h3>
             <br></br>
             <h3>Em breve entraremos em contato com você.</h3>
           </div>
