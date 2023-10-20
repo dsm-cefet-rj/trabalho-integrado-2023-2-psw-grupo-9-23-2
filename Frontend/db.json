@@ -139,12 +139,43 @@
     }
   ],
   "filtros": [
-    {"marca": "Ford"},
-    {"marca": "Fiat"},
-    {"marca": "Volkswagen"},
-    {"marca": "Toyota"},
-    {"marca": "Brasilia"},
-    {"marca": "Renault"},
-    {"marca": "Peugeot"}
+    {
+      "marca": "Ford"
+    },
+    {
+      "marca": "Fiat"
+    },
+    {
+      "marca": "Volkswagen"
+    },
+    {
+      "marca": "Toyota"
+    },
+    {
+      "marca": "Brasilia"
+    },
+    {
+      "marca": "Renault"
+    },
+    {
+      "marca": "Peugeot"
+    }
+  ],
+  "modelos": [
+    {
+      "marca": "Volkswagen",
+      "modelo": "Virtus",
+      "id": 1
+    },
+    {
+      "marca": "Volkswagen",
+      "modelo": "Polo",
+      "id": 2
+    },
+    {
+      "marca": "Volkswagen",
+      "modelo": "Polo",
+      "id": 3
+    }
   ]
 }
