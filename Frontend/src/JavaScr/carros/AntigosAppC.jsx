@@ -11,10 +11,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 export default function AntigosApp() {
   const dispatch = useDispatch();
-  const carros = useSelector((state) => state.carros); // Update the selector to use "carro" instead of "carros"
+  const carros = useSelector((state) => state.carros);
 
   useEffect(() => {
-    // Dispatch the fetchCarro action to fetch carro data
     dispatch(fetchCarro());
   }, [dispatch]);
   

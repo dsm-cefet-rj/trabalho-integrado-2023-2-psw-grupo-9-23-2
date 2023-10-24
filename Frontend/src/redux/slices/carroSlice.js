@@ -12,34 +12,31 @@ const initialState = {
   valor: "0",
 };
 
-// Define the base URL for your JSON server
 const baseUrl = 'http://localhost:8000/carros';
 
-// Create an async thunk for fetching carro
+
 export const fetchCarro = createAsyncThunk('carro/fetchCarro', async () => {
   const response = await axios.get(baseUrl);
   return response.data;
 });
 
-// Create an async thunk for creating a carro
 export const createCarro = createAsyncThunk('carro/createCarro', async (carroData) => {
   const response = await axios.post(baseUrl, carroData);
   return response.data;
 });
 
-// Create an async thunk for updating a carro
+
 export const updateCarro = createAsyncThunk('carro/updateCarro', async (carroData) => {
   const response = await axios.put(`${baseUrl}/${carroData.id}`, carroData);
   return response.data;
 });
 
-// Create an async thunk for deleting a carro
+
 export const deleteCarro = createAsyncThunk('carro/deleteCarro', async (carroId) => {
   await axios.delete(`${baseUrl}/${carroId}`);
   return carroId;
 });
 
-// Create a slice
 const carroSlice = createSlice({
   name: 'carro',
   initialState,
@@ -51,7 +48,6 @@ const carroSlice = createSlice({
       })
       .addCase(fetchCarro.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        // Update carro properties with the fetched data
         state.isAntigo = action.payload.isAntigo;
         state.nome = action.payload.nome;
         state.imgLink = action.payload.imgLink;
@@ -64,7 +60,6 @@ const carroSlice = createSlice({
         state.error = action.error.message;
       })
       .addCase(createCarro.fulfilled, (state, action) => {
-        // Update carro properties after creating a new carro
         state.isAntigo = action.payload.isAntigo;
         state.nome = action.payload.nome;
         state.imgLink = action.payload.imgLink;
@@ -73,7 +68,6 @@ const carroSlice = createSlice({
         state.valor = action.payload.valor;
       })
       .addCase(updateCarro.fulfilled, (state, action) => {
-        // Update carro properties after updating a carro
         state.isAntigo = action.payload.isAntigo;
         state.nome = action.payload.nome;
         state.imgLink = action.payload.imgLink;
@@ -82,7 +76,6 @@ const carroSlice = createSlice({
         state.valor = action.payload.valor;
       })
       .addCase(deleteCarro.fulfilled, (state, action) => {
-        // Reset carro properties after deleting a carro
         state.isAntigo = false;
         state.nome = "Generico";
         state.imgLink = "public/Antigos/antigo1.PNG";
