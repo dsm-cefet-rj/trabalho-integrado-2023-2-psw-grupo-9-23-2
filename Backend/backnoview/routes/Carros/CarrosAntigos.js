@@ -1,5 +1,8 @@
 var express = require('express');
 var router = express.Router();
+
+module.exports = router;
+
 let carros= [
   {
     "isAntigo": true,
@@ -11,7 +14,7 @@ let carros= [
     "id": 1
   },
   {
-    "isAntigo": true,
+    "isAntigo": false,
     "nome": "Fiat uno 1994",
     "imgLink": "public/Antigos/antigo3.PNG",
     "km": "800",
@@ -23,9 +26,8 @@ let carros= [
 /* GET home page. */
 router.route("/")
 .get((req, res, next) => {
+  let antigos = carros.filter((m)=>m.isAntigo===true);
   res.statusCode = 200;
   res.setHeader("Content-type", "application/json");
-  res.json(carros);
+  res.json(antigos);
 })
-
-module.exports = router;

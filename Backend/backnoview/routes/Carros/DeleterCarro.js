@@ -1,5 +1,8 @@
 var express = require('express');
 var router = express.Router();
+
+module.exports = router;
+
 let carros= [
   {
     "isAntigo": true,
@@ -11,7 +14,7 @@ let carros= [
     "id": 1
   },
   {
-    "isAntigo": true,
+    "isAntigo": false,
     "nome": "Fiat uno 1994",
     "imgLink": "public/Antigos/antigo3.PNG",
     "km": "800",
@@ -28,4 +31,12 @@ router.route("/")
   res.json(carros);
 })
 
-module.exports = router;
+router.route("/:id")
+.delete((req, res, next) =>{
+    carros = carros.filter((c) => c.id != req.params.id);
+
+    res.statusCode = 200;
+    res.setHeader("Content-type", "application/json");
+    res.json(carros);
+}
+)

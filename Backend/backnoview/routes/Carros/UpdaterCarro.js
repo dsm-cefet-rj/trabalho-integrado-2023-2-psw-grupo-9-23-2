@@ -1,5 +1,8 @@
 var express = require('express');
 var router = express.Router();
+
+module.exports = router;
+
 let carros= [
   {
     "isAntigo": true,
@@ -11,7 +14,7 @@ let carros= [
     "id": 1
   },
   {
-    "isAntigo": true,
+    "isAntigo": false,
     "nome": "Fiat uno 1994",
     "imgLink": "public/Antigos/antigo3.PNG",
     "km": "800",
@@ -28,4 +31,13 @@ router.route("/")
   res.json(carros);
 })
 
-module.exports = router;
+router.route("/:id")
+.put((req, res, next) =>{
+    let car = carros.map(p => p.id).indexOf(req.params.id);
+    carros.splice(car, 1, req.body);
+
+    res.statusCode = 200;
+    res.setHeader("Content-type", "application/json");
+    res.json(req.body);
+}
+)
