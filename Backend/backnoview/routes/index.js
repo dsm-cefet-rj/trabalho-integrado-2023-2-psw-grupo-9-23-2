@@ -20,7 +20,6 @@ let carros= [
     "id": 2
   }
 ];
-/* GET home page. */
 router.route("/")
 .get((req, res, next) => {
   res.statusCode = 200;
