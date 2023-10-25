@@ -29,7 +29,7 @@ router.route("/")
   res.statusCode = 200;
   res.setHeader("Content-type", "application/json");
   res.json(carros);
-})/*
+})
 .post((req, res, next)=>{
     let proxId = carros.length + 1;
     let carroAdd = {...req.body, proxId};
@@ -39,4 +39,4 @@ router.route("/")
     res.setHeader("Content-type", "application/json");
     res.json(carros);
 }
-)*/
+)

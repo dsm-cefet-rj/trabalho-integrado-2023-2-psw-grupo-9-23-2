@@ -33,10 +33,34 @@ let filtros= [
 ];
 /* GET home page. */
 router.route("/")
-.get((req, res, next) => {
-  let antigos = carros.filter((m)=>m.isAntigo===false);
+.get((req, res, next) => {//R tanto dos carros quanto dos filtros
+  let semi = carros.filter((m)=>m.isAntigo===false);
   res.statusCode = 200;
   res.setHeader("Content-type", "application/json");
-  res.json([filtros, antigos]);
+  res.json([filtros, semi]);
   
 })
+.post((req, res, next) => {//CUD dos filtros
+  filtros.push(req.body);
+  res.statusCode = 200;
+  res.setHeader("Content-type", "application/json");
+  res.json([filtros, carros]);
+  
+})
+.delete((req, res, next) =>{
+  filtros = filtros.filter((c) => c.nome != req.params.nome);
+
+  res.statusCode = 200;
+  res.setHeader("Content-type", "application/json");
+  res.json([filtros, carros]);
+}
+)
+.put((req, res, next) =>{
+  let filtro = filtros.map(p => p.nome).indexOf(req.params.nome);
+  carros.splice(filtro, 1, req.body);
+
+  res.statusCode = 200;
+  res.setHeader("Content-type", "application/json");
+  res.json([req.body, carros]);
+}
+)
