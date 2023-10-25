@@ -23,11 +23,20 @@ let carros= [
     "id": 2
   }
 ];
+let filtros= [
+  {marca: "Fiat"},
+  {marca: "Ford"},
+  {marca: "Peugeot"},
+  {marca: "Renault"},
+  {marca: "Volkswagen"},
+  {marca: "Jeep"}
+];
 /* GET home page. */
 router.route("/")
 .get((req, res, next) => {
   let antigos = carros.filter((m)=>m.isAntigo===false);
   res.statusCode = 200;
   res.setHeader("Content-type", "application/json");
-  res.json(antigos);
+  res.json([filtros, antigos]);
+  
 })

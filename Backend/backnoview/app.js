@@ -10,7 +10,8 @@ var seminovosRouter = require('./routes/Carros/CarrosSeminovos');
 var antigosRouter = require('./routes/Carros/CarrosAntigos');
 var criaCarRouter = require('./routes/Carros/CriadorCarros');
 var delCarRouter = require('./routes/Carros/DeleterCarro');
-var updCarRouter = require('./routes/Carros/UpdaterCarro')
+var updCarRouter = require('./routes/Carros/UpdaterCarro');
+//var filtrosRouter = require('./routes/Filtros/Filtros');
 
 var app = express();
 
@@ -26,5 +27,7 @@ app.use('/Antigos', antigosRouter);
 app.use('/CriadorCarro', criaCarRouter);
 app.use('/DeleterCarro', delCarRouter);
 app.use('/UpdaterCarro', updCarRouter);
+//app.use('/Seminovos', filtrosRouter);
+//app.use('/Antigos', filtrosRouter);
 
 module.exports = app;

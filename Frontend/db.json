@@ -160,22 +160,5 @@
     {
       "marca": "Peugeot"
     }
-  ],
-  "modelos": [
-    {
-      "marca": "Volkswagen",
-      "modelo": "Virtus",
-      "id": 1
-    },
-    {
-      "marca": "Volkswagen",
-      "modelo": "Polo",
-      "id": 2
-    },
-    {
-      "marca": "Volkswagen",
-      "modelo": "Polo",
-      "id": 3
-    }
   ]
 }
