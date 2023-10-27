@@ -2,86 +2,63 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const initialState = {
-  status: 'idle',
-  error: null,
-  isAntigo: false,
-  nome: "Generico",
-  imgLink: "public/Antigos/antigo1.PNG",
-  km: "0",
-  marca: "default",
-  valor: "0",
+  items: [], // Manage an array of items
 };
 
 const baseUrl = 'http://localhost:8000/carros';
 
-
-export const fetchCarro = createAsyncThunk('carro/fetchCarro', async () => {
+export const fetchCarros = createAsyncThunk('listaCarros/fetchCarros', async () => {
   const response = await axios.get(baseUrl);
   return response.data;
 });
 
-export const createCarro = createAsyncThunk('carro/createCarro', async (carroData) => {
+export const createCarro = createAsyncThunk('listaCarros/createCarro', async (carroData) => {
   const response = await axios.post(baseUrl, carroData);
   return response.data;
 });
 
-
-export const updateCarro = createAsyncThunk('carro/updateCarro', async (carroData) => {
+export const updateCarro = createAsyncThunk('listaCarros/updateCarro', async (carroData) => {
   const response = await axios.put(`${baseUrl}/${carroData.id}`, carroData);
   return response.data;
 });
 
-
-export const deleteCarro = createAsyncThunk('carro/deleteCarro', async (carroId) => {
+export const deleteCarro = createAsyncThunk('listaCarros/deleteCarro', async (carroId) => {
   await axios.delete(`${baseUrl}/${carroId}`);
   return carroId;
 });
 
 const carroSlice = createSlice({
-  name: 'carro',
+  name: 'listaCarros',
+  
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchCarro.pending, (state) => {
+      .addCase(fetchCarros.pending, (state) => {
         state.status = 'loading';
       })
-      .addCase(fetchCarro.fulfilled, (state, action) => {
+      .addCase(fetchCarros.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.isAntigo = action.payload.isAntigo;
-        state.nome = action.payload.nome;
-        state.imgLink = action.payload.imgLink;
-        state.km = action.payload.km;
-        state.marca = action.payload.marca;
-        state.valor = action.payload.valor;
+        state.items = action.payload; // Update the items array with fetched data
       })
-      .addCase(fetchCarro.rejected, (state, action) => {
+      .addCase(fetchCarros.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       })
       .addCase(createCarro.fulfilled, (state, action) => {
-        state.isAntigo = action.payload.isAntigo;
-        state.nome = action.payload.nome;
-        state.imgLink = action.payload.imgLink;
-        state.km = action.payload.km;
-        state.marca = action.payload.marca;
-        state.valor = action.payload.valor;
+        state.items.push(action.payload); // Add the new carro to the items array
       })
       .addCase(updateCarro.fulfilled, (state, action) => {
-        state.isAntigo = action.payload.isAntigo;
-        state.nome = action.payload.nome;
-        state.imgLink = action.payload.imgLink;
-        state.km = action.payload.km;
-        state.marca = action.payload.marca;
-        state.valor = action.payload.valor;
+        // Update the existing carro in the items array
+        const updatedCarro = action.payload;
+        const index = state.items.findIndex((carro) => carro.id === updatedCarro.id);
+        if (index !== -1) {
+          state.items[index] = updatedCarro;
+        }
       })
       .addCase(deleteCarro.fulfilled, (state, action) => {
-        state.isAntigo = false;
-        state.nome = "Generico";
-        state.imgLink = "public/Antigos/antigo1.PNG";
-        state.km = "0";
-        state.marca = "default";
-        state.valor = "0";
+        // Remove the deleted carro from the items array
+        state.items = state.items.filter((carro) => carro.id !== action.payload);
       });
   },
 });

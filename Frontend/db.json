@@ -98,6 +98,24 @@
       "marca": "Renault",
       "valor": "20000",
       "id": 11
+    },
+    {
+      "isAntigo": true,
+      "nome": "fiat punto",
+      "imgLink": "public/Antigos/antigo1.PNG",
+      "km": "12",
+      "marca": "fiat",
+      "valor": "123123",
+      "id": 12
+    },
+    {
+      "isAntigo": true,
+      "nome": "uhu",
+      "imgLink": "public/Antigos/antigo1.PNG",
+      "km": "123",
+      "marca": "gm",
+      "valor": "123123",
+      "id": 13
     }
   ],
   "horarios": [

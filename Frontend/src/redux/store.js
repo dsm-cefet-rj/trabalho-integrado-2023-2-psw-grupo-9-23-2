@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import carroReducer from './slices/carroSlice'; // Import your carroReducer
 export const store = configureStore({
   reducer: {
-      carro:carroReducer
+      listaCarros:carroReducer
       //horario:horarioReducer,
       //filtro:filtroReducer
   },

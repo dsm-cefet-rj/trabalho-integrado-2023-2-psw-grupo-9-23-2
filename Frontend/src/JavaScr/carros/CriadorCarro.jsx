@@ -1,7 +1,8 @@
+import { useDispatch } from 'react-redux';
 import Cabecalho from '../../Layout/Cabecalho.jsx'
 import '/bootstrap-5.3.1-dist/css/bootstrap.css'
-import React, {useState, useEffect } from 'react'
-import { Link } from 'react-router-dom';
+import React, {useState, useEffect, } from 'react'
+import { useSelector } from 'react-redux';
 
 
 export default function CriadorCarro() {
@@ -14,6 +15,7 @@ export default function CriadorCarro() {
     marca: '',
     valor: '',
   });
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -21,13 +23,12 @@ export default function CriadorCarro() {
       [name]: value,
     });
   };
-  const handleGoBack = () => {
-    window.history.back();
-  };
-  const [carros, setCarros] = useState([]);
+  const handleGoBack = () => { window.history.back(); };
 
+  //const [carros, setCarros] = useState([]);
+/*
   useEffect(() => {
-    fetch('http://localhost:8000/carros')
+ fetch('http://localhost:8000/carros')
       .then((response) => response.json())
       .then((data) => {
         setCarros(data);
@@ -36,20 +37,19 @@ export default function CriadorCarro() {
         console.error('Error fetching data:', error);
       });
   }, []);
+  */
   const handleSubmit = async (e) => {
-
-
-
-
-
+    const listaCarros = useSelector((state) => state.listaCarros);
     e.preventDefault();
-
+    
     try {
       const newEntry = {
         ...formData,
-        id: carros.length +1
+        //revisar o id para não ficar igual
+       id: listaCarros.length +1
       };
-
+      useDispatch(createCarro(newEntry));
+      /*
       const response = await fetch('http://localhost:8000/carros', {
         method: 'POST',
         headers: {
@@ -57,11 +57,13 @@ export default function CriadorCarro() {
         },
         body: JSON.stringify(newEntry),
       });
+      */
+      if (true) {
+       // const responseData = await response.json();
+        //console.log('New entry created:', responseData);
+        
 
-      if (response.ok) {
-        const responseData = await response.json();
-        console.log('New entry created:', responseData);
-
+        
         setFormData({
           isAntigo: true,
           nome: '',
@@ -70,8 +72,9 @@ export default function CriadorCarro() {
           marca: '',
           valor: '',
         });
+        
       } else {
-        console.error('Error creating new entry:', response.status, response.statusText);
+        //console.error('Error creating new entry:', response.status, response.statusText);
       }
     } catch (error) {
       console.error('Error creating new entry:', error);

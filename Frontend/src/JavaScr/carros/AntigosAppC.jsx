@@ -5,18 +5,14 @@ import '/bootstrap-5.3.1-dist/css/bootstrap.css'
 import CarroEscolhido from './CarroEscolhido.jsx'
 import { Link } from 'react-router-dom';
 import React, {useState, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 
 
 export default function AntigosApp() {
-  const dispatch = useDispatch();
-  const carros = useSelector((state) => state.carros);
-
-  useEffect(() => {
-    dispatch(fetchCarro());
-  }, [dispatch]);
+  const listaCarros = useSelector((state) => state.listaCarros);
   
+ // useEffect(() => {   dispatch(fetchCarros()); // Update the action name to fetchCarros}, [dispatch]);
   
   
   
@@ -43,7 +39,7 @@ export default function AntigosApp() {
   
   const lowerBusca = buscaNome.toLowerCase();
   
-  const carrosFiltrados = carros.filter(
+  const carrosFiltrados = listaCarros.items.filter(
     (carro) => carro.isAntigo === true &&
     carro.nome.toLowerCase().includes(lowerBusca) &&
     (buscaMarca != "" ? buscaMarca.includes(carro.marca) : carro.marca)&&
