@@ -7,7 +7,7 @@ let carros= [
   {
     "isAntigo": true,
     "nome": "Fusca 1994",
-    "imgLink": "public/Antigos/antigo1.PNG",
+    "imgLink": ".../public/Antigos/antigo1.PNG",
     "km": "800",
     "marca": "Ford",
     "valor": "30000",
@@ -16,10 +16,19 @@ let carros= [
   {
     "isAntigo": false,
     "nome": "Fiat uno 1994",
-    "imgLink": "public/Antigos/antigo3.PNG",
+    "imgLink": ".../public/Antigos/antigo3.PNG",
+    "km": "800",
+    "marca": "Fiat",
+    "valor": "30000",
+    "id": 2
+  },
+  {
+    "isAntigo": false,
+    "nome": "Ford Fiesta 1994",
+    "imgLink": "..../Frontend/public/Antigos/antigo1.PNG",
     "km": "800",
     "marca": "Ford",
-    "valor": "30000",
+    "valor": "42000",
     "id": 2
   }
 ];
@@ -34,10 +43,10 @@ let filtros= [
 /* GET home page. */
 router.route("/")
 .get((req, res, next) => {//R tanto dos carros quanto dos filtros
-  let semi = carros.filter((m)=>m.isAntigo===false);
+  //let semi = carros.filter((m)=>m.isAntigo===false);
   res.statusCode = 200;
   res.setHeader("Content-type", "application/json");
-  res.json([filtros, semi]);
+  res.json(carros);
   
 })
 .post((req, res, next) => {//CUD dos filtros

@@ -1,4 +1,4 @@
-var express = require('express');
+/*var express = require('express');
 var router = express.Router();
 
 module.exports = router;
@@ -31,7 +31,7 @@ let filtros= [
   {marca: "Volkswagen"},
   {marca: "Jeep"}
 ];
-/* GET home page. */
+
 router.route("/")
 .get((req, res, next) => {
   let antigos = carros.filter((m)=>m.isAntigo===true);
@@ -63,3 +63,4 @@ router.route("/")
   res.json([req.body, carros]);
 }
 )
+*/
