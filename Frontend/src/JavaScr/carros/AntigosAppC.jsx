@@ -11,27 +11,8 @@ import { useSelector } from 'react-redux';
 
 export default function AntigosApp() {
   const listaCarros = useSelector((state) => state.listaCarros);
-  
- // useEffect(() => {   dispatch(fetchCarros()); // Update the action name to fetchCarros}, [dispatch]);
-  
-  
-  
   const [escolhido, setEsco] = useState('');
   
-  //READ ESTÁ AQUI
-  
-  //const [carros, setCarros] = useState([]);
-  /* useEffect(() => {
-    fetch('http://localhost:8000/carros')
-      .then((response) => response.json())
-      .then((data) => {
-        setCarros(data);
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-      });
-  }, []); */
-
   const [buscaNome, setBuscaNome] = useState('');
   const [buscaMarca, setBuscaMarca] = useState('');
   const [buscaValor, setBuscaValor] = useState('');
