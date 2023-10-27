@@ -1,11 +1,11 @@
-import Cabecalho from '../../Layout/Cabecalho.jsx'
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import Cabecalho from '../../Layout/Cabecalho.jsx';
 import '/bootstrap-5.3.1-dist/css/bootstrap.css'
-import React, {useState, useEffect } from 'react'
-import { Link } from 'react-router-dom';
-
 
 export default function CriadorCarro() {
-  
+  //const dispatch = useDispatch();
+
   const [formData, setFormData] = useState({
     isAntigo: true,
     nome: '',
@@ -14,6 +14,7 @@ export default function CriadorCarro() {
     marca: '',
     valor: '',
   });
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -21,35 +22,19 @@ export default function CriadorCarro() {
       [name]: value,
     });
   };
+
   const handleGoBack = () => {
     window.history.back();
   };
-  const [carros, setCarros] = useState([]);
 
-  useEffect(() => {
-    fetch('http://localhost:8000/carros')
-      .then((response) => response.json())
-      .then((data) => {
-        setCarros(data);
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-      });
-  }, []);
   const handleSubmit = async (e) => {
-
-
-
-
-
     e.preventDefault();
-
     try {
+      const listaCarros = useSelector((state) => state.listaCarros);
       const newEntry = {
         ...formData,
-        id: carros.length +1
+        id: listaCarros.length + 1,
       };
-
       const response = await fetch('http://localhost:8000/carros', {
         method: 'POST',
         headers: {
@@ -57,11 +42,9 @@ export default function CriadorCarro() {
         },
         body: JSON.stringify(newEntry),
       });
-
       if (response.ok) {
         const responseData = await response.json();
         console.log('New entry created:', responseData);
-
         setFormData({
           isAntigo: true,
           nome: '',
@@ -80,11 +63,11 @@ export default function CriadorCarro() {
 
   return (
     <>
-    <Cabecalho />
-    <button onClick={handleGoBack}>Voltar</button>
-    <div>
-      <h2>Criar um novo carro</h2>
-      <form onSubmit={handleSubmit}>
+      <Cabecalho />
+      <button onClick={handleGoBack}>Voltar</button>
+      <div>
+        <h2>Criar um novo carro</h2>
+        <form onSubmit={handleSubmit}>
         <div>
           <label>
             O carro é antigo?
@@ -138,8 +121,7 @@ export default function CriadorCarro() {
         </div>
         <button type="submit">Concluido</button>
       </form>
-    </div>
-
+      </div>
     </>
   );
-};
+}
