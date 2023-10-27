@@ -4,7 +4,7 @@ import Formulario from '../../Layout/Formulario.jsx'
 import '/bootstrap-5.3.1-dist/css/bootstrap.css'
 import CarroEscolhido from './CarroEscolhido.jsx'
 import { Link } from 'react-router-dom';
-import React, {useState, useEffect } from 'react'
+import React, {useState} from 'react'
 import { useSelector } from 'react-redux';
 
 

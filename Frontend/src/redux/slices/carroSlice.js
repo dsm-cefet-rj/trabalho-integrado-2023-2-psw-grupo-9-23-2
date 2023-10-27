@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const initialState = {
-  items: [], // Manage an array of items
+  items: [], 
 };
 
 const baseUrl = 'http://localhost:8000/carros';
@@ -39,17 +39,16 @@ const carroSlice = createSlice({
       })
       .addCase(fetchCarros.fulfilled, (state, action) => {
         state.status = 'succeeded';
-        state.items = action.payload; // Update the items array with fetched data
+        state.items = action.payload;
       })
       .addCase(fetchCarros.rejected, (state, action) => {
         state.status = 'failed';
         state.error = action.error.message;
       })
       .addCase(createCarro.fulfilled, (state, action) => {
-        state.items.push(action.payload); // Add the new carro to the items array
+        state.items.push(action.payload);
       })
       .addCase(updateCarro.fulfilled, (state, action) => {
-        // Update the existing carro in the items array
         const updatedCarro = action.payload;
         const index = state.items.findIndex((carro) => carro.id === updatedCarro.id);
         if (index !== -1) {
@@ -57,7 +56,6 @@ const carroSlice = createSlice({
         }
       })
       .addCase(deleteCarro.fulfilled, (state, action) => {
-        // Remove the deleted carro from the items array
         state.items = state.items.filter((carro) => carro.id !== action.payload);
       });
   },
