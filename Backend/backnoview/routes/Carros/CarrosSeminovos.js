@@ -7,7 +7,7 @@ let carros= [
   {
     "isAntigo": true,
     "nome": "Fusca 1994",
-    "imgLink": ".../public/Antigos/antigo1.PNG",
+    "imgLink": "../public/Antigos/antigo1.PNG",
     "km": "800",
     "marca": "Ford",
     "valor": "30000",
@@ -16,7 +16,7 @@ let carros= [
   {
     "isAntigo": false,
     "nome": "Fiat uno 1994",
-    "imgLink": ".../public/Antigos/antigo3.PNG",
+    "imgLink": "../public/Antigos/antigo3.PNG",
     "km": "800",
     "marca": "Fiat",
     "valor": "30000",
@@ -25,11 +25,11 @@ let carros= [
   {
     "isAntigo": false,
     "nome": "Ford Fiesta 1994",
-    "imgLink": "..../Frontend/public/Antigos/antigo1.PNG",
+    "imgLink": "../Frontend/public/Antigos/antigo1.PNG",
     "km": "800",
     "marca": "Ford",
     "valor": "42000",
-    "id": 2
+    "id": 3
   }
 ];
 let filtros= [
@@ -40,10 +40,8 @@ let filtros= [
   {marca: "Volkswagen"},
   {marca: "Jeep"}
 ];
-/* GET home page. */
 router.route("/")
-.get((req, res, next) => {//R tanto dos carros quanto dos filtros
-  //let semi = carros.filter((m)=>m.isAntigo===false);
+.get((req, res, next) => {
   res.statusCode = 200;
   res.setHeader("Content-type", "application/json");
   res.json(carros);
@@ -61,15 +59,15 @@ router.route("/")
 
   res.statusCode = 200;
   res.setHeader("Content-type", "application/json");
-  res.json([filtros, carros]);
+  res.json({filtros, carros});
 }
 )
 .put((req, res, next) =>{
   let filtro = filtros.map(p => p.nome).indexOf(req.params.nome);
-  carros.splice(filtro, 1, req.body);
+  filtros.splice(filtro, 1, req.body);
 
   res.statusCode = 200;
   res.setHeader("Content-type", "application/json");
-  res.json([req.body, carros]);
+  res.json(req.body, filtros);
 }
 )

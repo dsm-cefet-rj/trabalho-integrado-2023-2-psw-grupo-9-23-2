@@ -28,7 +28,7 @@ app.use('/carros', seminovosRouter);
 app.use('/CriadorCarro', criaCarRouter);
 app.use('/DeleterCarro', delCarRouter);
 app.use('/UpdaterCarro', updCarRouter);
-app.use('/Agendamentos', agendaReadRouter);
+app.use('/horarios', agendaReadRouter);
 //app.use('/Seminovos', filtrosRouter);
 //app.use('/Antigos', filtrosRouter);
 

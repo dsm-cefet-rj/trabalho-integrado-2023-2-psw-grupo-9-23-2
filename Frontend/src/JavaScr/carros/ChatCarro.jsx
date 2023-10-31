@@ -3,12 +3,21 @@ import '/bootstrap-5.3.1-dist/css/bootstrap.css'
 import { Link } from 'react-router-dom'
 import React, { useState, useEffect } from 'react';
 
-import DadosHorarios from '../../json/Horarios.json'
+//import DadosHorarios from '../../json/Horarios.json'
 
 export default function ChatCarro() {
 
   const [horarios, setHorarios] = useState(DadosHorarios);
-
+  useEffect(() => {
+    fetch('http://localhost:8000/horarios')
+      .then((response) => response.json())
+      .then((data) => {
+        setHorarios(data);
+      })
+      .catch((error) => {
+        alert('Error fetching data:', error);
+      });
+  }, []);
   const atualizarAtributo = (indice, atributo, novoValor) => {
 
     const novosHorarios = [...horarios];
@@ -38,7 +47,7 @@ export default function ChatCarro() {
         <br></br>
         <div className="row">
           {
-            DadosHorarios.map((horario, index) => {
+            horarios.map((horario, index) => {
               return (
                 <div className="col text-center" key={index}>
                   <Link to="/AgendConcl">

@@ -6,6 +6,7 @@ export default function Home() {
     <>
       <Cabecalho />
       <Corpo />
+      <hr mt-3></hr>
       <Footer/>
     </>
   );
