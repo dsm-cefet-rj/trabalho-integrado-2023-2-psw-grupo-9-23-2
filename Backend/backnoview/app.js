@@ -8,9 +8,9 @@ var indexRouter = require('./routes/index');
 //Routers da entidade carro
 var seminovosRouter = require('./routes/Carros/CarrosSeminovos');
 //var antigosRouter = require('./routes/Carros/CarrosAntigos');
-var criaCarRouter = require('./routes/Carros/CriadorCarros');
-var delCarRouter = require('./routes/Carros/DeleterCarro');
-var updCarRouter = require('./routes/Carros/UpdaterCarro');
+//var criaCarRouter = require('./routes/Carros/CriadorCarros');
+//var delCarRouter = require('./routes/Carros/DeleterCarro');
+//var updCarRouter = require('./routes/Carros/UpdaterCarro');
 var agendaReadRouter = require('./routes/Agendamentos/AgendaLer')
 var filtrosRouter = require('./routes/Filtros/Filtros');
 

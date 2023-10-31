@@ -3,35 +3,36 @@ import '/bootstrap-5.3.1-dist/css/bootstrap.css'
 import { Link } from 'react-router-dom'
 import React, { useState, useEffect } from 'react';
 
-//import DadosHorarios from '../../json/Horarios.json'
 
 export default function ChatCarro() {
 
-  const [horarios, setHorarios] = useState(DadosHorarios);
+  const [horarios, setHorarios] = useState([]);
+  
   useEffect(() => {
     fetch('http://localhost:8000/horarios')
       .then((response) => response.json())
       .then((data) => {
         setHorarios(data);
+        console.log(data);
       })
       .catch((error) => {
-        alert('Error fetching data:', error);
+        console.error('Error fetching data:', error);
       });
   }, []);
+
+  const AgendamentosFiltrados = horarios.filter((horario) => horario.isOcupado === false);
   const atualizarAtributo = (indice, atributo, novoValor) => {
 
     const novosHorarios = [...horarios];
-
-    novosHorarios[indice][atributo] = novoValor;
-
+    novosHorarios[indice].isOcupado = novoValor;
     setHorarios(novosHorarios);
-
+    
   };
-
+/*
   useEffect(() => {
     console.log('JSON Atualizado:', horarios);
   }, [horarios]);
-
+*/
 
   return (
     <>
@@ -47,21 +48,20 @@ export default function ChatCarro() {
         <br></br>
         <div className="row">
           {
-            horarios.map((horario, index) => {
-              return (
+            AgendamentosFiltrados.map((horario, index) => (             
                 <div className="col text-center" key={index}>
                   <Link to="/AgendConcl">
                     <button className="btn btn-primary btn-lg"
                       onClick={() => atualizarAtributo(index, 'isOcupado', true)}
                     >
-                      Dia: {horario.dia}
+                      Dia: {horario.data}
                       <br></br>
                       Horário: {horario.hora}
                     </button>
                   </Link>
                 </div>
-              )
-            })
+              
+            ))
           }
 
         </div>
