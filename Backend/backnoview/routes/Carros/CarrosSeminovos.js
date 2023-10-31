@@ -32,14 +32,7 @@ let carros= [
     "id": 3
   }
 ];
-let filtros= [
-  {marca: "Fiat"},
-  {marca: "Ford"},
-  {marca: "Peugeot"},
-  {marca: "Renault"},
-  {marca: "Volkswagen"},
-  {marca: "Jeep"}
-];
+
 router.route("/")
 .get((req, res, next) => {
   res.statusCode = 200;
@@ -47,27 +40,32 @@ router.route("/")
   res.json(carros);
   
 })
-.post((req, res, next) => {//CUD dos filtros
-  filtros.push(req.body);
-  res.statusCode = 200;
-  res.setHeader("Content-type", "application/json");
-  res.json([filtros, carros]);
-  
-})
-.delete((req, res, next) =>{
-  filtros = filtros.filter((c) => c.nome != req.params.nome);
+.post((req, res, next)=>{
+  let proxId = carros.length + 1;
+  let carroAdd = {...req.body, proxId};
+  carros.push(carroAdd);
 
   res.statusCode = 200;
   res.setHeader("Content-type", "application/json");
-  res.json({filtros, carros});
+  res.json(carros);
+}
+)
+
+router.route("/:id")
+.delete((req, res, next) =>{
+    carros = carros.filter((c) => c.id != req.params.id);
+
+    res.statusCode = 200;
+    res.setHeader("Content-type", "application/json");
+    res.json(carros);
 }
 )
 .put((req, res, next) =>{
-  let filtro = filtros.map(p => p.nome).indexOf(req.params.nome);
-  filtros.splice(filtro, 1, req.body);
+    let car = carros.map(p => p.id).indexOf(req.params.id);
+    carros.splice(car, 1, req.body);
 
-  res.statusCode = 200;
-  res.setHeader("Content-type", "application/json");
-  res.json(req.body, filtros);
+    res.statusCode = 200;
+    res.setHeader("Content-type", "application/json");
+    res.json(req.body);
 }
 )

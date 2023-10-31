@@ -12,7 +12,7 @@ var criaCarRouter = require('./routes/Carros/CriadorCarros');
 var delCarRouter = require('./routes/Carros/DeleterCarro');
 var updCarRouter = require('./routes/Carros/UpdaterCarro');
 var agendaReadRouter = require('./routes/Agendamentos/AgendaLer')
-//var filtrosRouter = require('./routes/Filtros/Filtros');
+var filtrosRouter = require('./routes/Filtros/Filtros');
 
 var app = express();
 
@@ -25,11 +25,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/index', indexRouter);
 app.use('/carros', seminovosRouter);
 //app.use('/Antigos', antigosRouter);
-app.use('/CriadorCarro', criaCarRouter);
-app.use('/DeleterCarro', delCarRouter);
-app.use('/UpdaterCarro', updCarRouter);
+//app.use('/carros', criaCarRouter);
+//app.use('/carros', delCarRouter);
+//app.use('/carros', updCarRouter);
 app.use('/horarios', agendaReadRouter);
-//app.use('/Seminovos', filtrosRouter);
-//app.use('/Antigos', filtrosRouter);
+app.use('/filtros', filtrosRouter);
 
 module.exports = app;
