@@ -16,7 +16,7 @@ export default function Formulario(props)
         console.error('Error fetching data:', error);
       });
   }, []);
-  
+  /*
   function addMarca(pro)
   {
     if(marcas.filter((m) => m.marca == pro).length > 0)
@@ -69,42 +69,14 @@ export default function Formulario(props)
       }     
     }
   }
+  */
   const maxKm = "1000";
   const maxValor = "200000";
   return(
     <>
     <div className="container">.
       <div className="row ">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Insira nome de marca" id="AddMarca"></input>
-         <button class="btn btn-outline-secondary" type="button" onClick={() => addMarca(document.getElementById("AddMarca").value)}>Adicionar marca</button>
-</div>
-        <div class="input-group mb-3">
-    <select class="form-select" id="DelMarca">
-    <option selected >Escolha...</option>
-       {marcas.map((m) =>
-      <>
-      <option value={m.marca}>{m.marca}</option>    
-      </>
-      )}        
-  </select>
-  <button class="btn btn-outline-secondary" type="button" onClick={() => delMarca(document.getElementById("DelMarca").value)}> Excluir marca</button>
-      
-        </div>
-        <div class="input-group mb-3">
-    <select class="form-select" id="UpdSelMarca">
-    <option selected >Escolha...</option>
-       {marcas.map((m) =>
-      <>
-      <option value={m.marca}>{m.marca}</option>    
-      </>
-      )}        
-  </select>
-   <input type="text" class="form-control" placeholder="Insira novo nome" id="UpdNovaMarca"></input>    
-  <button class="btn btn-outline-secondary" type="button" onClick={() => updtMarca(document.getElementById("UpdSelMarca").value, document.getElementById("UpdNovaMarca").value)}> Atualizar marca</button>
-       </div>
-        <form>
-          
+        <form>       
           <div className ="col">
             <label for="Nome" >Nome:</label>
           <br></br>

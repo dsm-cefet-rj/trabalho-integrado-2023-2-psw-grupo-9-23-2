@@ -3,10 +3,10 @@ import CardCarro from './CardCarro.jsx'
 import Formulario from '../../Layout/Formulario.jsx'
 import '/bootstrap-5.3.1-dist/css/bootstrap.css'
 import CarroEscolhido from './CarroEscolhido.jsx'
-import { Link } from 'react-router-dom';
+
 import React, {useState, useEffect } from 'react'
 
-
+import FuncoesAdm from './FuncoesAdm.jsx'
 
 
 export default function AntigosApp() {
@@ -52,9 +52,7 @@ export default function AntigosApp() {
     return (
     <>
       <Cabecalho />
-      <Link to="/CriadorCarro"><button>Criar Carro</button></Link>
-      <Link to="/UpdaterCarro"><button>Modificar Carro</button></Link>
-      <Link to="/DeleterCarro"><button>Apagar Carro</button></Link>
+      <FuncoesAdm />
       <h2>Escolha o carro de sua preferência:</h2>
       <hr mt-3></hr>
       <Formulario 

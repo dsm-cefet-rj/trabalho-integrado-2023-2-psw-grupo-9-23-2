@@ -32,9 +32,7 @@ export default function AntigosApp() {
     return (
     <>
       <Cabecalho />
-      <Link to="/CriadorCarro"><button>Criar Carro</button></Link>
-      <Link to="/UpdaterCarro"><button>Modificar Carro</button></Link>
-      <Link to="/DeleterCarro"><button>Apagar Carro</button></Link>
+      <FuncoesAdm />
       <h2>Escolha o carro de sua preferência:</h2>
       <hr mt-3></hr>
       <Formulario 
@@ -57,7 +55,7 @@ export default function AntigosApp() {
   }
   else{
    
-    const carroAtual = carros.find(
+    const carroAtual = carrosFiltrados.find(
       (carro) => carro.nome.includes(escolhido)
     );
 

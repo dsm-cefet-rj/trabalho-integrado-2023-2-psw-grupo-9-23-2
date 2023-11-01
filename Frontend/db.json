@@ -163,6 +163,12 @@
       "dia": "00/00",
       "hora": "10:30",
       "id": 7
+    },
+    {
+      "data": "11/02",
+      "hora": "11:70",
+      "isOcupado": false,
+      "id": "Ho71"
     }
   ],
   "filtros": [

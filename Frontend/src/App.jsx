@@ -15,6 +15,9 @@ import Signin from './DadosPessoais/Signin.jsx'
 import MeusDados from './DadosPessoais/MeusDados.jsx'
 
 import AgendConcl from './JavaScr/agendamento/AgendConcl.jsx'
+import CriadorAgenda from './JavaScr/agendamento/CriadorAgenda'
+
+import FiltrosAdm from './Filtros/FiltrosAdm'
 
 import { Routes, Route } from 'react-router-dom'
 
@@ -35,6 +38,8 @@ export default function App() {
           <Route path="/UpdaterCarro" element={<UpdaterCarro />} />
           <Route path="/DeleterCarro" element={<DeleterCarro />} />
           <Route path="/Agendamentos" element={<ListaAgendamentos />} />
+          <Route path="/filtros-adm" element={<FiltrosAdm />} />
+          <Route path="/criador-agenda" element={<CriadorAgenda />} />
         </Routes>
     </>
   )
