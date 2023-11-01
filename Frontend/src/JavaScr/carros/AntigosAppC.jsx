@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import React, {useState} from 'react'
 import { useSelector } from 'react-redux';
 
-
+import FuncoesAdm from './FuncoesAdm.jsx'
 
 export default function AntigosApp() {
   const listaCarros = useSelector((state) => state.listaCarros);

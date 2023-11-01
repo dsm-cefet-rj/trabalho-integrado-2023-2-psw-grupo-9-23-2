@@ -37,3 +37,13 @@ router.route("/")
   res.setHeader("Content-type", "application/json");
   res.json(horarios);
 })
+.post((req, res, next)=>{
+  let proxId = "Ho" + (horarios.length + 1);
+  let horAdd = {...req.body, proxId};
+  horarios.push(horAdd);
+
+  res.statusCode = 200;
+  res.setHeader("Content-type", "application/json");
+  res.json(horarios);
+}
+)
