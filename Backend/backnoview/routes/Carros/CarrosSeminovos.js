@@ -7,7 +7,7 @@ let carros= [
   {
     "isAntigo": true,
     "nome": "Fusca 1994",
-    "imgLink": "../public/Antigos/antigo1.PNG",
+    "imgLink": "/Antigos/antigo1.PNG",
     "km": "800",
     "marca": "Ford",
     "valor": "30000",
@@ -16,7 +16,7 @@ let carros= [
   {
     "isAntigo": false,
     "nome": "Fiat uno 1994",
-    "imgLink": "../public/Antigos/antigo3.PNG",
+    "imgLink": "/Antigos/antigo3.PNG",
     "km": "800",
     "marca": "Fiat",
     "valor": "30000",
@@ -25,10 +25,10 @@ let carros= [
   {
     "isAntigo": false,
     "nome": "Ford Fiesta 1994",
-    "imgLink": "../Frontend/public/Antigos/antigo1.PNG",
+    "imgLink": "/Antigos/antigo1.PNG",
     "km": "800",
     "marca": "Ford",
-    "valor": "42000",
+    "valor": "52000",
     "id": 3
   }
 ];

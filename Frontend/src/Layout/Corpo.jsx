@@ -11,7 +11,7 @@ export default function Corpo() {
             <div className="row g-6">
               <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 offset-lg-1">
                 <div className="card text-center bg-info ">
-                   <img src="public/Buttons/carro-seminovo.PNG" className="card-img-top"></img>
+                   <img src="/Buttons/carro-seminovo.PNG" className="card-img-top"></img>
                   <div className="card-footer">
                      <Link to="/Seminovos"><button className="btn btn-primary">Ver Detalhes</button></Link>
                   </div>
@@ -19,7 +19,7 @@ export default function Corpo() {
               </div>
               <div className="col-xl-4 col-lg-4 col-md-6 col-sm-12 offset-lg-2">
                 <div className="card text-center bg-info ">
-                   <img src="public/Buttons/carro-antigo.PNG" className="card-img-top"></img>
+                   <img src="/Buttons/carro-antigo.PNG" className="card-img-top"></img>
                   <div className="card-footer">
                      <Link to="/Antigos"><button className="btn btn-primary">Ver Detalhes</button></Link>
                   </div>

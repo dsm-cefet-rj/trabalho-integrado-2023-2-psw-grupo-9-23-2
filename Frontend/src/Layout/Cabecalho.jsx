@@ -12,7 +12,7 @@ export default function Cabecalho() {
         <div className="row">
           <div className="col-md-4 col-sm-12">
             <Link to="/">
-              <button className="btn btn-info"> <img src="Logo.png" alt="Logo" style={imageStyle} />  </button>
+              <button className="btn btn-info"> <img src="/Logo.png" alt="Logo" style={imageStyle} />  </button>
             </Link>
           </div>
 
