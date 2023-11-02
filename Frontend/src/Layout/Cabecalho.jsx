@@ -3,8 +3,8 @@ import {Link} from 'react-router-dom'
 
 export default function Cabecalho() {
   const imageStyle = {
-    maxWidth: '100px', // Adjust the maximum width as needed
-    maxHeight: '75px', // Adjust the maximum height as needed
+    maxWidth: '100px',
+    maxHeight: '75px',
   };
   return (
     <>
@@ -17,9 +17,14 @@ export default function Cabecalho() {
           </div>
 
           <div className="col-md-8 col-sm-12 text-end">
+            <Link to="/DashBoard">
+              <button className="btn btn-light">Dashboard Admin</button>
+            </Link>
             <Link to="/Agendamentos">
               <button className="btn btn-light">Meus Agendamentos</button>
             </Link>
+            
+
 
             <Link to="/Login">
               <button className="btn btn-primary">Meu perfil</button>

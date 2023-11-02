@@ -20,6 +20,10 @@ import DeletarAgenda from './JavaScr/agendamento/DeletarAgenda'
 
 import FiltrosAdm from './Filtros/FiltrosAdm'
 
+
+
+import DashBoard from "./JavaScr/DashBoard.jsx"
+
 import { Routes, Route } from 'react-router-dom'
 
 export default function App() {
@@ -41,6 +45,7 @@ export default function App() {
           <Route path="/Agendamentos" element={<ListaAgendamentos />} />
           <Route path="/filtros-adm" element={<FiltrosAdm />} />
           <Route path="/criador-agenda" element={<CriadorAgenda />} />
+          <Route path="/DashBoard" element={<DashBoard />} />
           <Route path="/deletar-agenda" element={<DeletarAgenda />} />
         </Routes>
     </>
