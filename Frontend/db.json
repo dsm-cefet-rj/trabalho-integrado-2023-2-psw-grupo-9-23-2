@@ -98,33 +98,6 @@
       "marca": "Renault",
       "valor": "20000",
       "id": 11
-    },
-    {
-      "isAntigo": true,
-      "nome": "fiat punto",
-      "imgLink": "public/Antigos/antigo1.PNG",
-      "km": "12",
-      "marca": "fiat",
-      "valor": "123123",
-      "id": 12
-    },
-    {
-      "isAntigo": true,
-      "nome": "uhu",
-      "imgLink": "public/Antigos/antigo1.PNG",
-      "km": "123",
-      "marca": "gm",
-      "valor": "123123",
-      "id": 13
-    },
-    {
-      "isAntigo": true,
-      "nome": "abc",
-      "imgLink": "public/Antigos/antigo1.PNG",
-      "km": "123",
-      "marca": "fiat",
-      "valor": "123123",
-      "id": 14
     }
   ],
   "horarios": [
@@ -180,31 +153,11 @@
   "filtros": [
     {
       "marca": "Fiat",
-      "id": "Fiat"
+      "id": 1
     },
     {
-      "marca": "Jeep",
-      "id": "Jeep"
-    },
-    {
-      "marca": "Peugeot",
-      "id": "Peugeot"
-    },
-    {
-      "marca": "Toro",
-      "id": "Toro"
-    },
-    {
-      "marca": "Ferrari",
-      "id": "Ferrari"
-    },
-    {
-      "marca": "Honda",
-      "id": "Honda"
-    },
-    {
-      "marca": "Kombi",
-      "id": "Kombi"
+      "marca": "Ford",
+      "id": 2
     }
   ]
 }

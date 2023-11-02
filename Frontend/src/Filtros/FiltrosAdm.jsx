@@ -5,6 +5,8 @@ import Cabecalho from '../Layout/Cabecalho';
 
 import CriadorFiltros from './CriadorFiltros';
 import DeleterFiltros from './DeleterFiltros';
+import UpdaterFiltros from './UpdaterFiltros';
+
 
 export default function FiltrosAdm() {
     const [marcas, setMarca] = useState([]);
@@ -85,23 +87,12 @@ const handleGoBack = () => {
                     <h3>Deletar marca</h3>
                     <DeleterFiltros setMarc={setMarca} />
                     <h3>Atualizar marca</h3>
-                    <div className="input-group mb-3">
-                        <select className="form-select" id="UpdSelMarca">
-                            <option selected >Escolha...</option>
-                            {marcas.map((m) =>
-                                <>
-                                    <option value={m.marca}>{m.marca}</option>
-                                </>
-                            )}
-                        </select>
-                        <input type="text" class="form-control" placeholder="Insira novo nome" id="UpdNovaMarca"></input>
-                        <button class="btn btn-outline-secondary" type="button" onClick={() => updtMarca(document.getElementById("UpdSelMarca").value, document.getElementById("UpdNovaMarca").value)}> Atualizar marca</button>
-                    </div>
+                    <UpdaterFiltros setMarc={setMarca} />
                 </div>
                 <h5>Marcas existentes: </h5> <br />
                 <ul>
                   {marcas.map((m) =>
-                      <li>{m.id}</li>
+                      <li>{m.marca}</li>
                   )}
                 </ul>
             </div>

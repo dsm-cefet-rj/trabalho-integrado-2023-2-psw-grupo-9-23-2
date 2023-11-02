@@ -31,7 +31,7 @@ export default function DeleterFiltros(props) {
     e.preventDefault();
 
     if (!selectedFiltroId) {
-      alert('Por favor selecione um carro.');
+      alert('Por favor selecione uma marca!');
       return;
     }
 
@@ -43,7 +43,7 @@ export default function DeleterFiltros(props) {
       if (response.ok) {
         console.log('filtro deletado com sucesso.');
         setSelectedFiltroId(null); 
-        window.location.reload();
+       
 
         fetch('http://localhost:8000/filtros')
                 .then((response) => response.json())
@@ -66,12 +66,13 @@ export default function DeleterFiltros(props) {
     <>
     <div>
       <div>
-        <label>Selecione um carro:</label>
+        
         <select value={selectedFiltroId || ''} onChange={handleCarChange}  className='form-control'>
           <option value="">Selecione...</option>
           {filtros.map((m) => (
               <option key={m.id} value={m.id}>
-              {m.id}
+              {m.marca}
+              
             </option>
           ))}
         </select>
