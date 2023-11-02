@@ -4,14 +4,25 @@ import Formulario from '../../Layout/Formulario.jsx'
 import '/bootstrap-5.3.1-dist/css/bootstrap.css'
 import CarroEscolhido from './CarroEscolhido.jsx'
 import { Link } from 'react-router-dom';
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useSelector } from 'react-redux';
 
 import FuncoesAdm from './FuncoesAdm.jsx'
 
 export default function AntigosApp() {
-  const listaCarros = useSelector((state) => state.listaCarros);
+  //const listaCarros = useSelector((state) => state.listaCarros);
   const [escolhido, setEsco] = useState('');
+  const [carros, setCarros] = useState([]);
+  useEffect(() => {
+    fetch('http://localhost:8000/carros')
+      .then((response) => response.json())
+      .then((data) => {
+        setCarros(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
   
   const [buscaNome, setBuscaNome] = useState('');
   const [buscaMarca, setBuscaMarca] = useState('');
@@ -20,7 +31,7 @@ export default function AntigosApp() {
   
   const lowerBusca = buscaNome.toLowerCase();
   
-  const carrosFiltrados = listaCarros.items.filter(
+  const carrosFiltrados = carros.filter(
     (carro) => carro.isAntigo === true &&
     carro.nome.toLowerCase().includes(lowerBusca) &&
     (buscaMarca != "" ? buscaMarca.includes(carro.marca) : carro.marca)&&

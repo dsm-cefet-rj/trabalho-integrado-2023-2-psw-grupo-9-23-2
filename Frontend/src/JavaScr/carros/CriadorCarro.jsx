@@ -65,7 +65,7 @@ export default function CriadorCarro() {
         setFormData({
           isAntigo: true,
           nome: '',
-          imgLink: 'public/Antigos/antigo1.PNG',
+          imgLink: '/Antigos/antigo1.PNG',
           km: '',
           marca: '',
           valor: '',
