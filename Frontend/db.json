@@ -177,16 +177,28 @@
       "id": "Fiat"
     },
     {
-      "marca": "Ford",
-      "id": "Ford"
-    },
-    {
-      "marca": "Renault",
-      "id": "Renault"
-    },
-    {
       "marca": "Jeep",
       "id": "Jeep"
+    },
+    {
+      "marca": "Peugeot",
+      "id": "Peugeot"
+    },
+    {
+      "marca": "Toro",
+      "id": "Toro"
+    },
+    {
+      "marca": "Ferrari",
+      "id": "Ferrari"
+    },
+    {
+      "marca": "Honda",
+      "id": "Honda"
+    },
+    {
+      "marca": "Kombi",
+      "id": "Kombi"
     }
   ]
 }

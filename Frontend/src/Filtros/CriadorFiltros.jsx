@@ -2,7 +2,7 @@ import '/bootstrap-5.3.1-dist/css/bootstrap.css'
 import { Link } from 'react-router-dom';
 import React, {useState, useEffect} from 'react'
 import Cabecalho from '../Layout/Cabecalho';
-export default function CriadorFiltros()
+export default function CriadorFiltros(props)
 {
     /*
     const [marcas, setMarca] = useState({
@@ -122,9 +122,19 @@ export default function CriadorFiltros()
             console.log('New entry created:', responseData);
     
             setFormData({
-                marca: '',
-                
+                marca: '',              
               });
+           
+              fetch('http://localhost:8000/filtros')
+                .then((response) => response.json())
+                .then((data) => {
+                  {props.setMarc(data)}
+                })
+                .catch((error) => {
+                  console.error('Error fetching data:', error);
+                });
+              
+              
           } else {
             console.error('Error creating new entry:', response.status, response.statusText);
             if(response.status == 500)

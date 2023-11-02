@@ -2,7 +2,10 @@ import '/bootstrap-5.3.1-dist/css/bootstrap.css'
 import { Link } from 'react-router-dom';
 import React, {useState, useEffect} from 'react'
 import Cabecalho from '../Layout/Cabecalho';
+
 import CriadorFiltros from './CriadorFiltros';
+import DeleterFiltros from './DeleterFiltros';
+
 export default function FiltrosAdm() {
     const [marcas, setMarca] = useState([]);
     useEffect(() => {
@@ -78,23 +81,12 @@ const handleGoBack = () => {
             <button onClick={handleGoBack}>Voltar</button>
                 <div className="row ">
                     <h3>Criar nova marca</h3>
-                    <CriadorFiltros />
+                    <CriadorFiltros setMarc={setMarca} />
                     <h3>Deletar marca</h3>
-                    <div class="input-group mb-3">
-                        <select class="form-select" id="DelMarca">
-                            <option selected >Escolha...</option>
-                            {marcas.map((m) =>
-                                <>
-                                    <option value={m.marca}>{m.marca}</option>
-                                </>
-                            )}
-                        </select>
-                        <button class="btn btn-outline-secondary" type="button" onClick={() => delMarca(document.getElementById("DelMarca").value)}> Excluir marca</button>
-
-                    </div>
+                    <DeleterFiltros setMarc={setMarca} />
                     <h3>Atualizar marca</h3>
-                    <div class="input-group mb-3">
-                        <select class="form-select" id="UpdSelMarca">
+                    <div className="input-group mb-3">
+                        <select className="form-select" id="UpdSelMarca">
                             <option selected >Escolha...</option>
                             {marcas.map((m) =>
                                 <>
@@ -106,6 +98,12 @@ const handleGoBack = () => {
                         <button class="btn btn-outline-secondary" type="button" onClick={() => updtMarca(document.getElementById("UpdSelMarca").value, document.getElementById("UpdNovaMarca").value)}> Atualizar marca</button>
                     </div>
                 </div>
+                <h5>Marcas existentes: </h5> <br />
+                <ul>
+                  {marcas.map((m) =>
+                      <li>{m.id}</li>
+                  )}
+                </ul>
             </div>
         </>      
     );
