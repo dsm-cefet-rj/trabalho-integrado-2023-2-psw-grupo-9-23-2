@@ -1,21 +1,21 @@
 import '/bootstrap-5.3.1-dist/css/bootstrap.css'
 import { Link } from 'react-router-dom';
 import React, {useState, useEffect} from 'react'
-
+import Cabecalho from '../Layout/Cabecalho';
+import CriadorFiltros from './CriadorFiltros';
 export default function FiltrosAdm() {
     const [marcas, setMarca] = useState([]);
-
     useEffect(() => {
-        fetch('http://localhost:8000/filtros')
-          .then((response) => response.json())
-          .then((data) => {
-            setMarca(data);
-          })
-          .catch((error) => {
-            console.error('Error fetching data:', error);
-          });
-      }, []);
-
+      fetch('http://localhost:8000/filtros')
+        .then((response) => response.json())
+        .then((data) => {
+          setMarca(data);
+        })
+        .catch((error) => {
+          console.error('Error fetching data:', error);
+        });
+    }, []);
+/*
       function addMarca(pro)
       {
         if(marcas.filter((m) => m.marca == pro).length > 0)
@@ -30,7 +30,10 @@ export default function FiltrosAdm() {
         }
         
       }
-      
+*/     
+const handleGoBack = () => {
+  window.history.back();
+}; 
       function delMarca(pro)
       {
         if(pro == "Escolha...")
@@ -70,13 +73,12 @@ export default function FiltrosAdm() {
       }
     return (
         <>
-            <div className="container">.
+        <Cabecalho />
+            <div className="container">
+            <button onClick={handleGoBack}>Voltar</button>
                 <div className="row ">
                     <h3>Criar nova marca</h3>
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Insira nome de marca" id="AddMarca"></input>
-                        <button class="btn btn-outline-secondary" type="button" onClick={() => addMarca(document.getElementById("AddMarca").value)}>Adicionar marca</button>
-                    </div>
+                    <CriadorFiltros />
                     <h3>Deletar marca</h3>
                     <div class="input-group mb-3">
                         <select class="form-select" id="DelMarca">

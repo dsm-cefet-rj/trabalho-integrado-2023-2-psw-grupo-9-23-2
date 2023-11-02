@@ -173,25 +173,20 @@
   ],
   "filtros": [
     {
-      "marca": "Ford"
+      "marca": "Fiat",
+      "id": "Fiat"
     },
     {
-      "marca": "Fiat"
+      "marca": "Ford",
+      "id": "Ford"
     },
     {
-      "marca": "Volkswagen"
+      "marca": "Renault",
+      "id": "Renault"
     },
     {
-      "marca": "Toyota"
-    },
-    {
-      "marca": "Brasilia"
-    },
-    {
-      "marca": "Renault"
-    },
-    {
-      "marca": "Peugeot"
+      "marca": "Jeep",
+      "id": "Jeep"
     }
   ]
 }
