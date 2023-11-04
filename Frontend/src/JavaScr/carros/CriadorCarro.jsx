@@ -47,7 +47,7 @@ export default function CriadorCarro() {
     try {
       const newEntry = {
         ...formData,
-        id: carros.length +1
+        //id: carros.length +1
       };
 
       const response = await fetch('http://localhost:8000/carros', {

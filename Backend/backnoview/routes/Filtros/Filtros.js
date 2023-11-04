@@ -3,14 +3,12 @@ var router = express.Router();
 
 module.exports = router;
 
+
 let filtros= [
-  {marca: "Fiat"},
-  {marca: "Ford"},
-  {marca: "Peugeot"},
-  {marca: "Renault"},
-  {marca: "Volkswagen"},
-  {marca: "Jeep"}
+  {marca: "Ford", id: 1}
 ];
+
+let actualId = filtros.length;
 /* GET home page. */
 router.route("/")
 .get((req, res, next) => {
@@ -19,14 +17,19 @@ router.route("/")
   res.json(filtros);
 })
 .post((req, res, next) => {//CUD dos filtros
-  filtros.push(req.body);
+  actualId++;
+  let proxId = actualId;
+
+
+  filtros.push({...req.body, proxId});
   res.statusCode = 200;
   res.setHeader("Content-type", "application/json");
   res.json(filtros);
   
 })
+router.route("/:id")
 .delete((req, res, next) =>{
-  filtros = filtros.filter((c) => c.nome != req.params.nome);
+  filtros = filtros.filter((c) => c.id != req.params.id);
 
   res.statusCode = 200;
   res.setHeader("Content-type", "application/json");
@@ -34,11 +37,11 @@ router.route("/")
 }
 )
 .put((req, res, next) =>{
-  let filtro = filtros.map(p => p.nome).indexOf(req.params.nome);
-  filtros.splice(filtro, 1, req.body);
+  let f = filtros.map(p => p.id).indexOf(req.params.id);
+  filtros.splice(f, 1, req.body);
 
   res.statusCode = 200;
   res.setHeader("Content-type", "application/json");
-  res.json(req.body, filtros);
+  res.json(req.body);
 }
 )

@@ -39,7 +39,7 @@ export default function CriadorAgenda() {
       const newEntry = {
         ...formData,
         isOcupado: false,
-        id: "Ho"+ (horarios.length +1)
+        
       };
 
       const response = await fetch('http://localhost:8000/horarios', {

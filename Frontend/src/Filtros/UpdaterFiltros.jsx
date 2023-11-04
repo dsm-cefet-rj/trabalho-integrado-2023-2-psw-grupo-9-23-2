@@ -89,7 +89,7 @@ export default function UpdaterFiltros(props) {
           .catch((error) => {
             console.error('Error fetching data:', error);
           });
-
+          //window.location.reload();  
         } else {
           console.error('Error updating filter data:', response.status, response.statusText);
         }
