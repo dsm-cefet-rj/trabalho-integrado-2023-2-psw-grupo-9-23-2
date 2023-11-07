@@ -64,7 +64,7 @@ export default function DeletarAgenda() {
           <option value="">Selecione...</option>
           {agendas.map((agenda) => (
               <option key={agenda.id} value={agenda.id}>
-              {agenda.data}//{agenda.hora}
+              {agenda.data}--{agenda.hora}
             </option>
           ))}
         </select>
