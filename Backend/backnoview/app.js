@@ -5,12 +5,18 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 
-//Routers da entidade carro
+const mongoose = require('mongoose');
+const url = 'mongodb://localhost:27017/backnoview';
+const connect = mongoose.connect(url, {family:4});
+
+connect.then((db) =>{
+    console.log("Conectado ao mongo corretamente");
+},(err)=>{console.log(err);}
+);
+
+
+//Routers das entidades
 var seminovosRouter = require('./routes/Carros/CarrosSeminovos');
-//var antigosRouter = require('./routes/Carros/CarrosAntigos');
-//var criaCarRouter = require('./routes/Carros/CriadorCarros');
-//var delCarRouter = require('./routes/Carros/DeleterCarro');
-//var updCarRouter = require('./routes/Carros/UpdaterCarro');
 var agendaReadRouter = require('./routes/Agendamentos/AgendaLer')
 var filtrosRouter = require('./routes/Filtros/Filtros');
 
@@ -25,10 +31,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/index', indexRouter);
 app.use('/carros', seminovosRouter);
-//app.use('/Antigos', antigosRouter);
-//app.use('/carros', criaCarRouter);
-//app.use('/carros', delCarRouter);
-//app.use('/carros', updCarRouter);
 app.use('/horarios', agendaReadRouter);
 app.use('/filtros', filtrosRouter);
 

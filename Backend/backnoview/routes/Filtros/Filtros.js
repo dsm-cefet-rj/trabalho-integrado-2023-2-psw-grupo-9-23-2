@@ -1,4 +1,5 @@
 var express = require('express');
+const Filtros = require('../../Models/FiltroMod');
 var router = express.Router();
 
 module.exports = router;
@@ -12,28 +13,39 @@ let actualId = filtros.length;
 /* GET home page. */
 router.route("/")
 .get((req, res, next) => {
-  res.statusCode = 200;
-  res.setHeader("Content-type", "application/json");
-  res.json(filtros);
-})
-.post((req, res, next) => {//CUD dos filtros
-  actualId++;
-  let proxId = actualId;
 
+  Filtros.find({})
+  .then((filtrosBanco) => {
+    res.statusCode = 200;
+    res.setHeader("Content-type", "application/json");
+    res.json(filtrosBanco);
 
-  filtros.push({...req.body, proxId});
-  res.statusCode = 200;
-  res.setHeader("Content-type", "application/json");
-  res.json(filtros);
+  }, (err) => next(err))
+  .catch((err)=>next(err))
+}
+)
+.post((req, res, next) => {
+  Filtros.create(req.body)
+  .then((filtrosBanco) => {
+    console.log("Marca criada"+filtrosBanco);
+    res.statusCode = 200;
+    res.setHeader("Content-type", "application/json");
+    res.json(filtrosBanco);
+
+  }, (err) => next(err))
+  .catch((err)=>next(err))
   
 })
 router.route("/:id")
 .delete((req, res, next) =>{
-  filtros = filtros.filter((c) => c.id != req.params.id);
+  Filtros.findByIdAndRemove({_id: req.params.id})
+  .then((resp) => {
+    res.statusCode = 200;
+    res.setHeader("Content-type", "application/json");
+    res.json(resp.id);
 
-  res.statusCode = 200;
-  res.setHeader("Content-type", "application/json");
-  res.json(filtros);
+  }, (err) => next(err))
+  .catch((err)=>next(err))
 }
 )
 .put((req, res, next) =>{
