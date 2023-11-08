@@ -3,6 +3,7 @@ var router = express.Router();
 
 module.exports = router;
 
+var Carros = require('../../Models/CarroMod');
 let carros= [
   {
     "isAntigo": true,
@@ -35,12 +36,23 @@ let carros= [
 
 router.route("/")
 .get((req, res, next) => {
+  /*
   res.statusCode = 200;
   res.setHeader("Content-type", "application/json");
   res.json(carros);
+  */
+  Carros.find({})
+  .then((carrosBanco) => {
+    res.statusCode = 200;
+    res.setHeader("Content-type", "application/json");
+    res.json(carrosBanco);
+
+  }, (err) => next(err))
+  .catch((err)=>next(err))
   
 })
 .post((req, res, next)=>{
+  /*
   let proxId = carros.length + 1;
   let carroAdd = {...req.body, proxId};
   carros.push(carroAdd);
@@ -48,6 +60,16 @@ router.route("/")
   res.statusCode = 200;
   res.setHeader("Content-type", "application/json");
   res.json(carros);
+  */
+  Carros.create(req.body)
+  .then((carrosBanco) => {
+    console.log("Marca criada"+carrosBanco);
+    res.statusCode = 200;
+    res.setHeader("Content-type", "application/json");
+    res.json(carrosBanco);
+
+  }, (err) => next(err))
+  .catch((err)=>next(err))
 }
 )
 
