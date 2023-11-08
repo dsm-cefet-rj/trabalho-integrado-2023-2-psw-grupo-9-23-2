@@ -3,6 +3,7 @@ var router = express.Router();
 
 module.exports = router;
 
+var Agendas = require('../../Models/AgendaMod');
 let horarios= [
     {
         "isOcupado": true,
@@ -33,11 +34,22 @@ let horarios= [
 /* GET home page. */
 router.route("/")
 .get((req, res, next) => {
+  /*
   res.statusCode = 200;
   res.setHeader("Content-type", "application/json");
   res.json(horarios);
+  */
+  Agendas.find({})
+  .then((agendasBanco) => {
+    res.statusCode = 200;
+    res.setHeader("Content-type", "application/json");
+    res.json(agendasBanco);
+
+  }, (err) => next(err))
+  .catch((err)=>next(err))
 })
 .post((req, res, next)=>{
+  /*
   let proxId = "Ho" + (horarios.length + 1);
   let horAdd = {...req.body, proxId};
   horarios.push(horAdd);
@@ -45,5 +57,15 @@ router.route("/")
   res.statusCode = 200;
   res.setHeader("Content-type", "application/json");
   res.json(horarios);
+  */
+  Agendas.create(req.body)
+  .then((agendasBanco) => {
+    console.log("Marca criada"+agendasBanco);
+    res.statusCode = 200;
+    res.setHeader("Content-type", "application/json");
+    res.json(agendasBanco);
+
+  }, (err) => next(err))
+  .catch((err)=>next(err))
 }
 )
