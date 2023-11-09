@@ -31,6 +31,14 @@ const carroSchema = new Schema({
     
 })//.plugin(normalize);
 
+carroSchema.set('toJSON', {
+    transform: (doc, ret) => {
+      ret.id = ret._id;
+      delete ret._id;
+      delete ret.__v; 
+    }
+  });
+
 //filtroSchema.plugin(normalize);
 var Carros = mongoose.model("Carro", carroSchema);
 

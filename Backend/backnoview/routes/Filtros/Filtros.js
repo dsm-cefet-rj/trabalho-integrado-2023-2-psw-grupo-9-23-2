@@ -31,10 +31,9 @@ router.route("/")
   
 })
 router.route("/:id")
-.delete((req, res, next) =>{
-  
-  Filtros.findByIdAndRemove(req.params.id)
-  .then((resp) => {
+.delete((req, res, next) =>{  
+  Filtros.findByIdAndDelete(req.params.id)//Na teoria, esse metodo e um outdated, e o mais correto seria usar o findByIdAndRemove
+  .then((resp) => {//Na pratica, o Delete so funcionou com esse metodo
     res.statusCode = 200;
     res.setHeader("Content-type", "application/json");
     res.json(resp.id);

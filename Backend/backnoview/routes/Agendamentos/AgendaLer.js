@@ -69,3 +69,14 @@ router.route("/")
   .catch((err)=>next(err))
 }
 )
+.delete((req, res, next) =>{
+    Agendas.findByIdAndDelete(req.params.id)
+    .then((resp) => {
+      res.statusCode = 200;
+      res.setHeader("Content-type", "application/json");
+      res.json(resp.id);
+  
+    }, (err) => next(err))
+    .catch((err)=>next(err))
+}
+)

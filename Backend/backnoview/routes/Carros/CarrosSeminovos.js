@@ -75,19 +75,39 @@ router.route("/")
 
 router.route("/:id")
 .delete((req, res, next) =>{
+  /*
     carros = carros.filter((c) => c.id != req.params.id);
 
     res.statusCode = 200;
     res.setHeader("Content-type", "application/json");
     res.json(carros);
+    */
+    Carros.findByIdAndDelete(req.params.id)
+    .then((resp) => {
+      res.statusCode = 200;
+      res.setHeader("Content-type", "application/json");
+      res.json(resp.id);
+  
+    }, (err) => next(err))
+    .catch((err)=>next(err))
 }
 )
 .put((req, res, next) =>{
+  /*
     let car = carros.map(p => p.id).indexOf(req.params.id);
     carros.splice(car, 1, req.body);
 
     res.statusCode = 200;
     res.setHeader("Content-type", "application/json");
     res.json(req.body);
+*/
+  Carros.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true})
+  .then((resp) => {
+  res.statusCode = 200;
+  res.setHeader("Content-type", "application/json");
+  res.json(resp);
+
+  }, (err) => next(err))
+  .catch((err)=>next(err))
 }
 )
