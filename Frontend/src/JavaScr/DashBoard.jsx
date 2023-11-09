@@ -48,24 +48,24 @@ import '/bootstrap-5.3.1-dist/css/bootstrap.css'
   
   
   const CarrosButtons = [
-    { text: 'Criar Carro', image: './Feather Icons/bell.svg', link: '/CriadorCarro' },
-    { text: 'Atualizar Carro', image: './Feather Icons/bell.svg',link: '/CriadorCarro' },
-    { text: 'Apagar Carro', image: './Feather Icons/bell.svg',link: '/CriadorCarro' },
-    { text: 'Listar Carros', image: './Feather Icons/bell.svg' ,link: '/CriadorCarro'},
+    { text: 'Adicionar Carro', image: './Feather Icons/plus-circle.svg', link: '/CriadorCarro' },
+    { text: 'Atualizar Carro', image: './Feather Icons/settings.svg',link: '/UpdaterCarro' },
+    { text: 'Remover Carro', image: './Feather Icons/minus-circle.svg',link: '/DeleterCarro' },
+    { text: 'Listar Carros AINDA A FAZER', image: './Feather Icons/list.svg' ,link: '/CriadorCarro'},
   ];
   
   const FiltrosButtons = [
-    { text: 'Criar Filtro', image: './Feather Icons/bell.svg',link: '/CriadorCarro' },
-    { text: 'Atualizar Filtro', image: './Feather Icons/bell.svg' ,link: '/CriadorCarro'},
-    { text: 'Apagar Filtro', image: './Feather Icons/bell.svg',link: '/CriadorCarro' },
-    { text: 'Listar Filtros', image: './Feather Icons/bell.svg' ,link: '/CriadorCarro'},
+    { text: 'Criar Filtro', image: './Feather Icons/plus-circle.svg',link: '/CriadorCarro' },
+    { text: 'Atualizar Filtro', image: './Feather Icons/settings.svg' ,link: '/CriadorCarro'},
+    { text: 'Apagar Filtro', image: './Feather Icons/minus-circle.svg',link: '/CriadorCarro' },
+    { text: 'Listar Filtros', image: './Feather Icons/list.svg' ,link: '/CriadorCarro'},
   ];
   
-  const HorariosButtons = [
-    { text: 'Horário 1', image: 'horario.png' },
-    { text: 'Horário 2', image: 'horario.png' },
-    { text: 'Horário 3', image: 'horario.png' },
-    { text: 'Horário 4', image: 'horario.png' },
+  const AgendamentosButtons = [
+    { text: 'Horário 1', image: 'horario.png',link: '/CriadorCarro' },
+    { text: 'Horário 2', image: 'horario.png',link: '/CriadorCarro' },
+    { text: 'Horário 3', image: 'horario.png',link: '/CriadorCarro' },
+    { text: 'Horário 4', image: 'horario.png',link: '/CriadorCarro' },
   ];
 
 
@@ -75,6 +75,7 @@ import '/bootstrap-5.3.1-dist/css/bootstrap.css'
             <Cabecalho></Cabecalho>
             <ButtonRow title="Carros" buttons={CarrosButtons} />
             <ButtonRow title="Filtros" buttons={FiltrosButtons} />
+            <ButtonRow title="Agendamentos" buttons={AgendamentosButtons} />
 
 
 </>
