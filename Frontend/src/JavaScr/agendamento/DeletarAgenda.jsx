@@ -43,7 +43,15 @@ export default function DeletarAgenda() {
       if (response.ok) {
         console.log('Horario deletado com sucesso.');
         setSelectedAgendaId(null); 
-        window.location.reload();
+        fetch('http://localhost:8000/horarios')
+                .then((response) => response.json())
+                .then((data) => {
+                  setAgendas(data);
+                })
+                .catch((error) => {
+                  console.error('Error fetching data:', error);
+                });
+        //window.location.reload();
       } else {
         console.error('Error deletando:', response.status, response.statusText);
       }

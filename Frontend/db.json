@@ -102,28 +102,10 @@
   ],
   "horarios": [
     {
-      "isOcupado": true,
-      "data": "12/09",
-      "hora": "14:08",
-      "id": 1
-    },
-    {
+      "data": "",
+      "hora": "",
       "isOcupado": false,
-      "dia": "00/00",
-      "hora": "09:15",
       "id": 2
-    },
-    {
-      "isOcupado": false,
-      "dia": "00/00",
-      "hora": "09:30",
-      "id": 3
-    },
-    {
-      "data": "30/11",
-      "hora": "08:30",
-      "isOcupado": false,
-      "id": 4
     }
   ],
   "filtros": [

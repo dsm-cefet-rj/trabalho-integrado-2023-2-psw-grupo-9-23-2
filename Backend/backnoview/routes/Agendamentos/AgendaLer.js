@@ -69,6 +69,18 @@ router.route("/")
   .catch((err)=>next(err))
 }
 )
+router.route("/:id")
+.get((req, res, next) =>{
+  Agendas.findById(req.params.id)
+  .then((resp) => {
+    res.statusCode = 200;
+    res.setHeader("Content-type", "application/json");
+    res.json(resp);
+
+  }, (err) => next(err))
+  .catch((err)=>next(err))
+}
+)
 .delete((req, res, next) =>{
     Agendas.findByIdAndDelete(req.params.id)
     .then((resp) => {
