@@ -15,6 +15,10 @@ const agendaSchema = new Schema({
     hora: {
         type:String,
         required: true
+    },
+    carroRef:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref: 'Carro'
     }
     
 })//.plugin(normalize);

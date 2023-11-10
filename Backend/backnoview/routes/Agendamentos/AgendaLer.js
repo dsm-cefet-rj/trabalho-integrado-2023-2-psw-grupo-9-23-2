@@ -58,7 +58,7 @@ router.route("/")
   res.setHeader("Content-type", "application/json");
   res.json(horarios);
   */
-  Agendas.create(req.body)
+  Agendas.create({...req.body,carroRef: null})
   .then((agendasBanco) => {
     console.log("Marca criada"+agendasBanco);
     res.statusCode = 200;
@@ -69,7 +69,7 @@ router.route("/")
   .catch((err)=>next(err))
 }
 )
-router.route("/:id")
+router.route("/:id")/*
 .get((req, res, next) =>{
   Agendas.findById(req.params.id)
   .then((resp) => {
@@ -80,7 +80,7 @@ router.route("/:id")
   }, (err) => next(err))
   .catch((err)=>next(err))
 }
-)
+)*/
 .delete((req, res, next) =>{
     Agendas.findByIdAndDelete(req.params.id)
     .then((resp) => {
