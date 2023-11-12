@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
-
+const cors = require('../cors');
 module.exports = router;
 
 var Agendas = require('../../Models/AgendaMod');
-let horarios= [
+/*let horarios= [
     {
         "isOcupado": true,
         "data": "02/01",
@@ -29,11 +29,12 @@ let horarios= [
         "hora": "09:15",
         "id": 4
       },
-];
+];*/
 
 /* GET home page. */
 router.route("/")
-.get((req, res, next) => {
+.options(cors.corsWithOptions, (req, res) => {res.sendStatus(200);})
+.get(cors.corsWithOptions, (req, res, next) => {
   /*
   res.statusCode = 200;
   res.setHeader("Content-type", "application/json");
@@ -48,7 +49,7 @@ router.route("/")
   }, (err) => next(err))
   .catch((err)=>next(err))
 })
-.post((req, res, next)=>{
+.post(cors.corsWithOptions, (req, res, next)=>{
   /*
   let proxId = "Ho" + (horarios.length + 1);
   let horAdd = {...req.body, proxId};
@@ -69,19 +70,9 @@ router.route("/")
   .catch((err)=>next(err))
 }
 )
-router.route("/:id")/*
-.get((req, res, next) =>{
-  Agendas.findById(req.params.id)
-  .then((resp) => {
-    res.statusCode = 200;
-    res.setHeader("Content-type", "application/json");
-    res.json(resp);
-
-  }, (err) => next(err))
-  .catch((err)=>next(err))
-}
-)*/
-.delete((req, res, next) =>{
+router.route("/:id")
+.options(cors.corsWithOptions, (req, res) => {res.sendStatus(200);})
+.delete(cors.corsWithOptions, (req, res, next) =>{
     Agendas.findByIdAndDelete(req.params.id)
     .then((resp) => {
       res.statusCode = 200;

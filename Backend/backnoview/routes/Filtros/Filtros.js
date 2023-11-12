@@ -1,12 +1,13 @@
 var express = require('express');
 var Filtros = require('../../Models/FiltroMod');
 var router = express.Router();
-
+const cors = require('../cors');
 module.exports = router;
 
 /* GET home page. */
 router.route("/")
-.get((req, res, next) => {
+.options(cors.corsWithOptions, (req, res) => {res.sendStatus(200);})
+.get(cors.corsWithOptions, (req, res, next) => {
 
   Filtros.find({})
   .then((filtrosBanco) => {
@@ -18,7 +19,7 @@ router.route("/")
   .catch((err)=>next(err))
 }
 )
-.post((req, res, next) => {
+.post(cors.corsWithOptions, (req, res, next) => {
   Filtros.create(req.body)
   .then((filtrosBanco) => {
     console.log("Marca criada"+filtrosBanco);
@@ -31,7 +32,8 @@ router.route("/")
   
 })
 router.route("/:id")
-.delete((req, res, next) =>{  
+.options(cors.corsWithOptions, (req, res) => {res.sendStatus(200);})
+.delete(cors.corsWithOptions, (req, res, next) =>{  
   Filtros.findByIdAndDelete(req.params.id)//Na teoria, esse metodo e um outdated, e o mais correto seria usar o findByIdAndRemove
   .then((resp) => {//Na pratica, o Delete so funcionou com esse metodo
     res.statusCode = 200;
@@ -42,7 +44,7 @@ router.route("/:id")
   .catch((err)=>next(err))
 }
 )
-.put((req, res, next) =>{
+.put(cors.corsWithOptions, (req, res, next) =>{
   /*
   let f = filtros.map(p => p.id).indexOf(req.params.id);
   filtros.splice(f, 1, req.body);

@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
-
+const cors = require('../cors');
 module.exports = router;
 
 var Carros = require('../../Models/CarroMod');
-let carros= [
+/*let carros= [
   {
     "isAntigo": true,
     "nome": "Fusca 1994",
@@ -32,10 +32,11 @@ let carros= [
     "valor": "52000",
     "id": 3
   }
-];
+];*/
 
 router.route("/")
-.get((req, res, next) => {
+.options(cors.corsWithOptions, (req, res) => {res.sendStatus(200);})
+.get(cors.corsWithOptions, (req, res, next) => {
   /*
   res.statusCode = 200;
   res.setHeader("Content-type", "application/json");
@@ -51,7 +52,7 @@ router.route("/")
   .catch((err)=>next(err))
   
 })
-.post((req, res, next)=>{
+.post(cors.corsWithOptions, (req, res, next)=>{
   /*
   let proxId = carros.length + 1;
   let carroAdd = {...req.body, proxId};
@@ -74,7 +75,8 @@ router.route("/")
 )
 
 router.route("/:id")
-.delete((req, res, next) =>{
+.options(cors.corsWithOptions, (req, res) => {res.sendStatus(200);})
+.delete(cors.corsWithOptions, (req, res, next) =>{
   /*
     carros = carros.filter((c) => c.id != req.params.id);
 
@@ -92,7 +94,7 @@ router.route("/:id")
     .catch((err)=>next(err))
 }
 )
-.put((req, res, next) =>{
+.put(cors.corsWithOptions, (req, res, next) =>{
   /*
     let car = carros.map(p => p.id).indexOf(req.params.id);
     carros.splice(car, 1, req.body);
