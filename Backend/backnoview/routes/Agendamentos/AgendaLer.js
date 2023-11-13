@@ -4,6 +4,7 @@ const cors = require('../cors');
 module.exports = router;
 
 var Agendas = require('../../Models/AgendaMod');
+var Carros = require('../../Models/CarroMod');
 /*let horarios= [
     {
         "isOcupado": true,
@@ -44,8 +45,9 @@ router.route("/")
   .then((agendasBanco) => {
     res.statusCode = 200;
     res.setHeader("Content-type", "application/json");
+    
     res.json(agendasBanco);
-
+    
   }, (err) => next(err))
   .catch((err)=>next(err))
 })

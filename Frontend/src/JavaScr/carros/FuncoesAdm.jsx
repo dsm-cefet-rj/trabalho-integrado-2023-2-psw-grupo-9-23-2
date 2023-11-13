@@ -19,6 +19,7 @@ export default function FuncoesAdm()
                 </div>
                 <h3>Gerenciar agendamentos: </h3>
                 <div className='col'>
+                    <Link to="/checar-agenda"><button className='btn btn-info'>Checar agendamentos</button></Link>
                     <Link to="/criador-agenda"><button className='btn btn-info'>Criar agendamentos</button></Link>                  
                     <Link to="/deletar-agenda"><button className='btn btn-info'>Deletar agendamentos</button></Link>
                 </div>

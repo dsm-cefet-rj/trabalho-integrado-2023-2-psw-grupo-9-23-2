@@ -17,6 +17,7 @@ import MeusDados from './DadosPessoais/MeusDados.jsx'
 import AgendConcl from './JavaScr/agendamento/AgendConcl.jsx'
 import CriadorAgenda from './JavaScr/agendamento/CriadorAgenda'
 import DeletarAgenda from './JavaScr/agendamento/DeletarAgenda'
+import ChecarAgendamentos from './JavaScr/agendamento/ChecarAgendamentos.jsx'
 
 import FiltrosAdm from './Filtros/FiltrosAdm'
 
@@ -47,6 +48,7 @@ export default function App() {
           <Route path="/criador-agenda" element={<CriadorAgenda />} />
           <Route path="/DashBoard" element={<DashBoard />} />
           <Route path="/deletar-agenda" element={<DeletarAgenda />} />
+          <Route path="/checar-agenda" element={<ChecarAgendamentos />} />
         </Routes>
     </>
   )
