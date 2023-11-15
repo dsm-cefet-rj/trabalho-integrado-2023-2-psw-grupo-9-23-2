@@ -45,14 +45,6 @@ router.route("/:id")
 }
 )
 .put(cors.corsWithOptions, (req, res, next) =>{
-  /*
-  let f = filtros.map(p => p.id).indexOf(req.params.id);
-  filtros.splice(f, 1, req.body);
-
-  res.statusCode = 200;
-  res.setHeader("Content-type", "application/json");
-  res.json(req.body);
-  */
  Filtros.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true})
  .then((resp) => {
   res.statusCode = 200;

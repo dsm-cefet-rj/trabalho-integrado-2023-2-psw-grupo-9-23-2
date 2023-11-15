@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-//var normalize = require('normalize-mongoose');
-
 const agendaSchema = new Schema({
     isOcupado: {
         type: Boolean,
@@ -21,7 +19,7 @@ const agendaSchema = new Schema({
         ref: 'Carro'
     }
     
-})//.plugin(normalize);
+})
 
 agendaSchema.set('toJSON', {
     transform: (doc, ret) => {
@@ -31,7 +29,7 @@ agendaSchema.set('toJSON', {
     }
   });
 
-//filtroSchema.plugin(normalize);
+
 var Agendas = mongoose.model("Agendamento", agendaSchema);
 
 module.exports = Agendas;

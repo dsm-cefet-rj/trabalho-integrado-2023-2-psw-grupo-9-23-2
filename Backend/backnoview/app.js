@@ -28,7 +28,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-//app.use('/index', indexRouter);
 app.use('/carros', seminovosRouter);
 app.use('/horarios', agendaReadRouter);
 app.use('/filtros', filtrosRouter);

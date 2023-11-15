@@ -53,7 +53,7 @@ export default function DeleterFiltros(props) {
                 .catch((error) => {
                   console.error('Error fetching data:', error);
                 });
-                //window.location.reload();  
+                window.location.reload();  
       } else {
         console.error('Error deletando:', response.status, response.statusText);
       }

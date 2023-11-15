@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-//var normalize = require('normalize-mongoose');
-
 const carroSchema = new Schema({
     isAntigo: {
         type: Boolean,
@@ -29,7 +27,7 @@ const carroSchema = new Schema({
         required: true
     }
     
-})//.plugin(normalize);
+})
 
 carroSchema.set('toJSON', {
     transform: (doc, ret) => {
@@ -39,7 +37,6 @@ carroSchema.set('toJSON', {
     }
   });
 
-//filtroSchema.plugin(normalize);
 var Carros = mongoose.model("Carro", carroSchema);
 
 module.exports = Carros;

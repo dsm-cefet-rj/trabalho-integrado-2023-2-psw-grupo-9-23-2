@@ -20,62 +20,11 @@ export default function FiltrosAdm() {
           console.error('Error fetching data:', error);
         });
     }, []);
-/*
-      function addMarca(pro)
-      {
-        if(marcas.filter((m) => m.marca == pro).length > 0)
-        {
-          alert("Essa marca já existe nos filtros!")
-        }
-        else{
-          const nova ={marca:pro};
-          const novaMarca=[...marcas, nova];
-          setMarca(novaMarca);
-          
-        }
-        
-      }
-*/     
+  
 const handleGoBack = () => {
   window.history.back();
 }; 
-      function delMarca(pro)
-      {
-        if(pro == "Escolha...")
-        {
-          alert("Escolha uma marca a ser excluída");
-        }
-        else
-        {
-          const novaMarca = marcas.filter((m)=> m.marca != pro);
-          setMarca(novaMarca);
-        }
-      }
-    
-      function updtMarca(ant, novo)
-      {
-        if(ant == "Escolha...")
-        {
-          alert("Escolha uma marca a ser atualizada!");
-        }
-       else if(novo == "")
-       {
-         alert("Escolha um nome para atualizar a marca!");
-       }
-        else
-        {
-          if(marcas.filter((m) => m.marca == novo).length > 0)
-          {
-            alert("Essa marca já existe nos filtros!")
-          }
-          else
-          {
-            const nova = {marca: novo};
-            const novaMarcas = [...marcas, nova];
-            setMarca(novaMarcas.filter((m) => m.marca != ant));
-          }     
-        }
-      }
+      
     return (
         <>
         <Cabecalho />

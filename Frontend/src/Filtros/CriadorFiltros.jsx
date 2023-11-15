@@ -75,7 +75,7 @@ export default function CriadorFiltros(props)
                   console.error('Error fetching data:', error);
                 });
               
-              //window.location.reload();  
+              window.location.reload();  
           } else {
             console.error('Error creating new entry:', response.status, response.statusText);
             if(response.status == 500)
