@@ -14,10 +14,17 @@ connect.then((db) =>{
 );
 
 
+
+
+
+
+
+
 //Routers das entidades
 var seminovosRouter = require('./routes/Carros/CarrosSeminovos');
 var agendaReadRouter = require('./routes/Agendamentos/AgendaLer');
 var filtrosRouter = require('./routes/Filtros/Filtros');
+var usersRouter = require('./routes/Users/UsersTreat')
 
 var app = express();
 
@@ -31,5 +38,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/carros', seminovosRouter);
 app.use('/horarios', agendaReadRouter);
 app.use('/filtros', filtrosRouter);
+app.use('/users', usersRouter);
 
 module.exports = app;
