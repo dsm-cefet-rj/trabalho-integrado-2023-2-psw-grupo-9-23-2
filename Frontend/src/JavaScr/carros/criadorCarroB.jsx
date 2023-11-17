@@ -9,7 +9,7 @@ export default function CriadorCarro() {
   const [formData, setFormData] = useState({
     isAntigo: true,
     nome: '',
-    imgLink: 'public/Antigos/antigo1.PNG',
+    imgLink: '',
     km: '',
     marca: '',
     valor: '',
@@ -118,6 +118,10 @@ export default function CriadorCarro() {
             value={formData.valor}
             onChange={handleInputChange}
           />
+        </div>
+        <div class="input-group mb-3">
+          <input type="file" className="form-control" id="inputGroupFile02" value={formData.imgLink} onChange={handleInputChange}/>
+          <label className="input-group-text" htmlFor="inputGroupFile02">Imagem do carro</label>
         </div>
         <button type="submit">Concluido</button>
       </form>

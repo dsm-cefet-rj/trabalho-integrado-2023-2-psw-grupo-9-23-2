@@ -2,6 +2,7 @@ var express = require('express');
 var Filtros = require('../../Models/FiltroMod');
 var router = express.Router();
 const cors = require('../cors');
+
 module.exports = router;
 
 /* GET home page. */

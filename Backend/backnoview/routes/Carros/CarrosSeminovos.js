@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const cors = require('../cors');
+let fs = require('fs');
 module.exports = router;
 
 var Carros = require('../../Models/CarroMod');
@@ -21,6 +22,15 @@ router.route("/")
 .post(cors.corsWithOptions, (req, res, next)=>{
   Carros.create(req.body)
   .then((carrosBanco) => {
+    let ActualLink = "../../Frontend/public/Antigos/Carro"+(req.params.nome)+".png";
+    let bufferImg = req.params.imgLink;
+    fs.writeFile(ActualLink, "", function (err){
+    if(err){
+     throw err;
+      }
+      console.log("Deu certo")
+    })
+    
     console.log("Marca criada"+carrosBanco);
     res.statusCode = 200;
     res.setHeader("Content-type", "application/json");
