@@ -15,8 +15,8 @@ const userSchema = new Schema({
       required:true
     },
     telefone:{
-      type:Int,
-      required:true
+      type:String,//1-Precisei mudar, pois estava dando erro que Int is not defined
+      required:true//2-Campos como Telefone/cpf/etc sao String mesmo. Usar como int tende a dar ruim 
     },
     dataNas:{
       type:Date,

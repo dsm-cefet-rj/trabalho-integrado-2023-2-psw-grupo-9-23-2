@@ -2,7 +2,6 @@ import Cabecalho from '../../Layout/Cabecalho.jsx'
 import '/bootstrap-5.3.1-dist/css/bootstrap.css'
 import React, {useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import fs from 'fs'
 
 export default function CriadorCarro() {
   
@@ -14,43 +13,28 @@ export default function CriadorCarro() {
     marca: '',
     valor: '',
   });
-  let ActualLink = "";
-  let ActualFile;
-  function createImage()
-  {
-    if(ActualFile == null)
-    {
-      alert("Por favor, insira uma imagem para o novo carro");
-      return;
-    }
 
-    let aux = ActualFile.split(".");
-    if(aux[aux.length-1] !== "png")
-    {
-      alert("Por favor, insira uma imagem no formato png");
-      return;
-    }
-    /*
-    ActualLink = "public/Antigos/Carro"+(carros.length+1)+".png"
-    fs.writeFile(ActualLink, ActualFile, function (err){
-      if(err){
-        throw err;
-      }
-      console.log("Deu certo")
-    })
-    */
-  }
-
-  
+  const [imag, setImag] = useState("");
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    if(value.includes(".png"))
+    if(name === "imgLink")
     {
-      ActualFile = value;
-      console.log(value);
+      console.log(e);
+      var reader = new FileReader();
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload = () =>{
+        console.log(reader.result);
+
+        if(reader.result.length <= 75000)        
+          setImag(reader.result);
+        else
+          alert("Atencao: Imagens nao podem ter mais de 75kb");
+      }
+      reader.onerror = error =>{
+        console.log("Error: " + error);
+      }
       return;
     }
-    
     setFormData({
       ...formData,
       [name]: value,
@@ -75,10 +59,9 @@ export default function CriadorCarro() {
     e.preventDefault();
 
     try {
-      createImage();
       const newEntry = {
         ...formData,
-        imgLink: ActualFile
+        imgLink: imag
       };
 
       const response = await fetch('http://localhost:8000/carros', {
@@ -168,11 +151,13 @@ export default function CriadorCarro() {
           />
         </div>
         <div class="input-group mb-3">
-          <input type="file" className="form-control" id="inputGroupFile02" onChange={handleInputChange}/>
-          <label className="input-group-text" htmlFor="inputGroupFile02">Imagem do carro(.png)</label>
+          <input accept="image/*" type="file" name="imgLink" className="form-control" id="inputGroupFile02" value={formData.imgLink} onChange={handleInputChange}/>
+          <label className="input-group-text" htmlFor="inputGroupFile02">Imagem do carro</label>
         </div>
         <button type="submit">Concluido</button>
       </form>
+      <br/><br/>
+      <img src={imag}/>
     </div>
 
     </>
