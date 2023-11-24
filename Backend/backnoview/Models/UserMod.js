@@ -9,6 +9,18 @@ const userSchema = new Schema({
     senha: {
         type:String,
         required: true
+    },
+    nome:{
+      type:String,
+      required:true
+    },
+    telefone:{
+      type:Int,
+      required:true
+    },
+    dataNas:{
+      type:Date,
+      required:true
     }
     
 })
