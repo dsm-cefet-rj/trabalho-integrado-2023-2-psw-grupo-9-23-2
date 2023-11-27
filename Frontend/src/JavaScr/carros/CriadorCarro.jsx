@@ -2,6 +2,7 @@ import Cabecalho from '../../Layout/Cabecalho.jsx'
 import '/bootstrap-5.3.1-dist/css/bootstrap.css'
 import React, {useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import UploadImage from './uploadImage.jsx'
 
 export default function CriadorCarro() {
 
@@ -26,27 +27,12 @@ export default function CriadorCarro() {
     valor: '',
   });
 
-  const [imag, setImag] = useState("");
+  const [AllImages, setAllImages] = useState(null);
+
+  
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    if(name === "imgLink")
-    {
-      console.log(e);
-      var reader = new FileReader();
-      reader.readAsDataURL(e.target.files[0]);
-      reader.onload = () =>{
-        console.log(reader.result);
-
-        if(reader.result.length <= 75000)        
-          setImag(reader.result);
-        else
-          alert("Atencao: Imagens nao podem ter mais de 75kb");
-      }
-      reader.onerror = error =>{
-        console.log("Error: " + error);
-      }
-      return;
-    }
+    
     setFormData({
       ...formData,
       [name]: value,
@@ -58,6 +44,17 @@ export default function CriadorCarro() {
   const [carros, setCarros] = useState([]);
 
   useEffect(() => {
+    fetch('http://localhost:8000/upload-image')
+      .then((response) => response.json())
+      .then((data) => {
+        setAllImages(data);
+      })
+      .catch((error) => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
+
+  useEffect(() => {
     fetch('http://localhost:8000/carros')
       .then((response) => response.json())
       .then((data) => {
@@ -66,14 +63,14 @@ export default function CriadorCarro() {
       .catch((error) => {
         console.error('Error fetching data:', error);
       });
+
   }, []);
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const newEntry = {
-        ...formData,
-        imgLink: imag
+        ...formData
       };
 
       const response = await fetch('http://localhost:8000/carros', {
@@ -162,17 +159,34 @@ export default function CriadorCarro() {
             onChange={handleInputChange}
           />
         </div>
-        <div class="input-group mb-3">
-          <input accept="image/*" type="file" name="imgLink" className="form-control" id="inputGroupFile02" value={formData.imgLink} onChange={handleInputChange}/>
-          <label className="input-group-text" htmlFor="inputGroupFile02">Imagem do carro</label>
-        </div>
+        <div>
+        
+        <select value={formData.imgLink || ''} name="imgLink" id="imgLink" onChange={handleInputChange}  className='form-control'>
+          <option value="">Selecione Link da imagem...</option>
+          {AllImages == null? "" :AllImages.map((m) => (
+              <option key={m.id} value={m.image}>
+              {m.image}
+              
+            </option>
+          ))}
+        </select>
+      </div>
         <button type="submit" onClick={handleFinishedClick}>Concluido</button>
         <button type="submit">Quero colocar Mais</button>
       </form>
-      <br/><br/>
-      <img src={imag}/>
+      <br/><br/><br/>
+      <UploadImage />
+      <h3>Imagens disponiveis</h3>
+      {AllImages == null? "" : AllImages.map((img) => (
+          <div className='card text-center bg-light'>
+            <div className="card-header">
+              <h5 className="card-title">{ img.image }</h5>
+            </div>
+            <img src={img.image} className="card-img-top"></img>
+          </div>))       
+      }
     </div>
-
+    
     </>
   );
 };

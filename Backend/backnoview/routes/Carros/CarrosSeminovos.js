@@ -1,9 +1,11 @@
 var express = require('express');
 var router = express.Router();
 const cors = require('../cors');
+
 module.exports = router;
 
 var Carros = require('../../Models/CarroMod');
+
 
 router.route("/")
 .options(cors.corsWithOptions, (req, res) => {res.sendStatus(200);})
@@ -19,7 +21,7 @@ router.route("/")
   
 })
 .post(cors.corsWithOptions, (req, res, next)=>{
-  
+   
   Carros.create(req.body)
   .then((carrosBanco) => {
     

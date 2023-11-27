@@ -24,7 +24,8 @@ connect.then((db) =>{
 var seminovosRouter = require('./routes/Carros/CarrosSeminovos');
 var agendaReadRouter = require('./routes/Agendamentos/AgendaLer');
 var filtrosRouter = require('./routes/Filtros/Filtros');
-var usersRouter = require('./routes/Users/UsersTreat')
+var usersRouter = require('./routes/Users/UsersTreat');
+var uploadRouter = require('./routes/Uploader/UploadImg');
 
 var app = express();
 
@@ -39,5 +40,5 @@ app.use('/carros', seminovosRouter);
 app.use('/horarios', agendaReadRouter);
 app.use('/filtros', filtrosRouter);
 app.use('/users', usersRouter);
-
+app.use('/upload-image', uploadRouter);
 module.exports = app;
