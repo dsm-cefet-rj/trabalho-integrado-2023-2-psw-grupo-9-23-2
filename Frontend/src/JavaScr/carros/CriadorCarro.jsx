@@ -4,6 +4,18 @@ import React, {useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 
 export default function CriadorCarro() {
+
+  const handleFinishedClick = () =>{
+    console.log("hahahaha");
+    const isAntigoValue = formData.isAntigo;
+    if (isAntigoValue) {
+      // Navigate to a different part of the website for isAntigo is true
+      window.location.href = '/Antigos';
+    } else {
+      // Navigate to a different part of the website for isAntigo is false
+      window.location.href = '/Seminovos';
+    }
+  }
   
   const [formData, setFormData] = useState({
     isAntigo: true,
@@ -154,7 +166,8 @@ export default function CriadorCarro() {
           <input accept="image/*" type="file" name="imgLink" className="form-control" id="inputGroupFile02" value={formData.imgLink} onChange={handleInputChange}/>
           <label className="input-group-text" htmlFor="inputGroupFile02">Imagem do carro</label>
         </div>
-        <button type="submit">Concluido</button>
+        <button type="submit" onClick={handleFinishedClick}>Concluido</button>
+        <button type="submit">Quero colocar Mais</button>
       </form>
       <br/><br/>
       <img src={imag}/>

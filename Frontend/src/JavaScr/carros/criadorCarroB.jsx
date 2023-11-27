@@ -124,6 +124,7 @@ export default function CriadorCarro() {
           <label className="input-group-text" htmlFor="inputGroupFile02">Imagem do carro</label>
         </div>
         <button type="submit">Concluido</button>
+        <button type="submit">Quero colocar mais</button> // MODIFIQUEI ERRADO 
       </form>
       </div>
     </>
