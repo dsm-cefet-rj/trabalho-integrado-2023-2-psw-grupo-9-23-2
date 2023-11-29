@@ -15,12 +15,16 @@ const userSchema = new Schema({
       required:true
     },
     telefone:{
-      type:String,//1-Precisei mudar, pois estava dando erro que Int is not defined
-      required:true//2-Campos como Telefone/cpf/etc sao String mesmo. Usar como int tende a dar ruim 
+      type:String,
+      required:true 
     },
     dataNas:{
       type:Date,
       required:true
+    },
+    agendamentoRef:{
+      type:mongoose.Schema.Types.ObjectId,
+      ref:'Agendamento'
     }
     
 })

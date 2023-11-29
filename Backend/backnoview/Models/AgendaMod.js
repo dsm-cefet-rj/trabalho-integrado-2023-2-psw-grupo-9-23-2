@@ -17,8 +17,11 @@ const agendaSchema = new Schema({
     carroRef:{
         type:mongoose.Schema.Types.ObjectId,
         ref: 'Carro'
+    },
+    usarioRef:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref: 'User'
     }
-    
 })
 
 agendaSchema.set('toJSON', {
