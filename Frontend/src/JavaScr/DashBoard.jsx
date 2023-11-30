@@ -10,8 +10,12 @@ import '/bootstrap-5.3.1-dist/css/bootstrap.css'
   const ButtonRow = ({ title, buttons, imageSize }) => {
     const imageStyle = {
       width: 80,
-      height: 80, 
+      height: 100, 
     };
+    const estiloSemUnderline = {
+      textDecoration: 'none',
+    };
+  
   
     return (
         <div className="container mt-4">
@@ -20,7 +24,7 @@ import '/bootstrap-5.3.1-dist/css/bootstrap.css'
             {buttons.map((button, index) => (
               <div key={index} className="col-md-3 mb-4">
                 <div className="card">
-                  <a href={button.link}>
+                  <a href={button.link} style={estiloSemUnderline}>
                     <div className="row no-gutters">
                       <div className="col-4">
                         <img
@@ -62,10 +66,10 @@ import '/bootstrap-5.3.1-dist/css/bootstrap.css'
   ];
   
   const AgendamentosButtons = [
-    { text: 'Horário 1', image: 'horario.png',link: '/CriadorCarro' },
-    { text: 'Horário 2', image: 'horario.png',link: '/CriadorCarro' },
-    { text: 'Horário 3', image: 'horario.png',link: '/CriadorCarro' },
-    { text: 'Horário 4', image: 'horario.png',link: '/CriadorCarro' },
+    { text: 'Criar Horário', image: './Feather Icons/plus-circle.svg' /*'horario.png'*/,link: '/CriadorCarro' },
+    { text: 'Atualizar Horário', image: './Feather Icons/settings.svg' /*'horario.png'*/,link: '/CriadorCarro' },
+    { text: 'Apagar Horário', image: './Feather Icons/minus-circle.svg'/*'horario.png'*/,link: '/CriadorCarro' },
+    { text: 'Listar Horários', image: './Feather Icons/list.svg' /*'horario.png'*/,link: '/CriadorCarro' },
   ];
 
 
