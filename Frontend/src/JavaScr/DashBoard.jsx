@@ -51,7 +51,7 @@ import '/bootstrap-5.3.1-dist/css/bootstrap.css'
     { text: 'Adicionar Carro', image: './Feather Icons/plus-circle.svg', link: '/CriadorCarro' },
     { text: 'Atualizar Carro', image: './Feather Icons/settings.svg',link: '/UpdaterCarro' },
     { text: 'Remover Carro', image: './Feather Icons/minus-circle.svg',link: '/DeleterCarro' },
-    { text: 'Listar Carros AINDA A FAZER', image: './Feather Icons/list.svg' ,link: '/CriadorCarro'},
+    { text: 'Listar Carros', image: './Feather Icons/list.svg' ,link: '/CriadorCarro'},
   ];
   
   const FiltrosButtons = [
@@ -62,10 +62,10 @@ import '/bootstrap-5.3.1-dist/css/bootstrap.css'
   ];
   
   const AgendamentosButtons = [
-    { text: 'Horário 1', image: 'horario.png',link: '/CriadorCarro' },
-    { text: 'Horário 2', image: 'horario.png',link: '/CriadorCarro' },
-    { text: 'Horário 3', image: 'horario.png',link: '/CriadorCarro' },
-    { text: 'Horário 4', image: 'horario.png',link: '/CriadorCarro' },
+    { text: 'Criar Horário', image: './Feather Icons/plus-circle.svg',link: '/CriadorCarro' },
+    { text: 'Atualizar Horário', image: './Feather Icons/settings.svg',link: '/CriadorCarro' },
+    { text: 'Apagar Horário', image: './Feather Icons/minus-circle.svg',link: '/CriadorCarro' },
+    { text: 'Listar Horários', image: './Feather Icons/list.svg',link: '/CriadorCarro' },
   ];
 
 
