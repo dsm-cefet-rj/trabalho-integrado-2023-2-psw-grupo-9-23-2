@@ -2,6 +2,7 @@ var express =require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const cors = require('cors');
 
 
 var mongoose = require('mongoose');
@@ -33,6 +34,46 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+//AUTENTICAÇÃO VAI AQUI
+/*
+function auth(req, res, next) {
+    console.log(req.headers);
+
+    // Check if the request contains the 'Authorization' header
+    var authHeader = req.headers.authorization;
+    if (!authHeader) {
+        var err = new Error("Authentication required");
+        res.setHeader('WWW-Authenticate', 'Basic');
+        err.status = 401;
+        return next(err);
+    }
+
+    // Decode the base64-encoded credentials
+    var auth = Buffer.from(authHeader.split(' ')[1], 'base64').toString().split(":");
+    var user = auth[0];
+    var pass = auth[1];
+
+    // Check credentials (replace with your actual authentication logic)
+    if (user === process.env.AUTH_USER && pass === process.env.AUTH_PASSWORD) {
+        next(); // Authorized
+    } else {
+        var err = new Error("Invalid credentials");
+        res.setHeader("WWW-Authenticate", "Basic");
+        err.status = 401;
+        return next(err);
+    }
+}
+
+// Usage of environment variables for credentials
+// Set these environment variables in your deployment environment
+// For example, in your .env file during development
+// AUTH_USER=admin
+// AUTH_PASSWORD=password
+
+
+app.use(auth);
+*/
 app.use(express.static(path.join(__dirname, 'public')));
 
 

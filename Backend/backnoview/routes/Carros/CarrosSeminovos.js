@@ -8,6 +8,7 @@ var Carros = require('../../Models/CarroMod');
 
 
 router.route("/")
+//router.use(auth)
 .options(cors.corsWithOptions, (req, res) => {res.sendStatus(200);})
 .get(cors.corsWithOptions, (req, res, next) => {
   Carros.find({})
