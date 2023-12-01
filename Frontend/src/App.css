@@ -18,7 +18,12 @@
 }*/
 
 /*------------------Corpo----------------------*/
-
+body {
+  background-color: rgba(255, 255, 255, 0.9); /* Adjust the last value (0.95) for opacity */
+  margin: 0; /* Remove default margin to ensure the background covers the entire page */
+  padding: 0; /* Remove default padding to ensure the background covers the entire page */
+}
+/* esse body é pra depois colocar no fundo do site pra n ficar o branco que tá
 
 /*#card_seminovo{
   border: 1px solid black;

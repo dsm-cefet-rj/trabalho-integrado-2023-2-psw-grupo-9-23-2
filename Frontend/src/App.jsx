@@ -40,9 +40,14 @@ export default function App() {
           <Route path="/Carro" element={<CarroEscolhido />} />
           <Route path="/Carro/ChatCarro" element={<ChatCarro />} />
           <Route path="/AgendConcl" element={<AgendConcl />} />
+
+
           <Route path="/CriadorCarro" element={<CriadorCarro />} />
           <Route path="/UpdaterCarro" element={<UpdaterCarro />} />
           <Route path="/DeleterCarro" element={<DeleterCarro />} />
+
+
+          
           <Route path="/Agendamentos" element={<ListaAgendamentos />} />
           <Route path="/filtros-adm" element={<FiltrosAdm />} />
           <Route path="/criador-agenda" element={<CriadorAgenda />} />
