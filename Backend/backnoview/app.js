@@ -3,8 +3,15 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+//adição nova Gustavo
+//var config = require('./config');
 
 var mongoose = require('mongoose');
+
+//adição nova Gustavo
+//const url = config.mongoUrl;
+
+//anterior que dava certo
 const url = 'mongodb://localhost:27017/backnoview';
 const connect = mongoose.connect(url, {family:4});
 
