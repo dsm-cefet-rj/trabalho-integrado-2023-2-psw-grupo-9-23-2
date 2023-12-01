@@ -34,6 +34,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+//app.use(cookieParser('12345-67891-73567-54312));
 
 //AUTENTICAÇÃO VAI AQUI
 /*
@@ -74,6 +75,44 @@ function auth(req, res, next) {
 
 app.use(auth);
 */
+
+
+
+
+/*
+outra parada:
+
+function auth(req, res, next) {
+    console.log(req.headers);
+
+    
+    var authHeader = req.headers.authorization;
+    if (!authHeader) {
+        var err = new Error("Authentication required");
+        res.setHeader('WWW-Authenticate', 'Basic');
+        err.status = 401;
+        return next(err);
+    }
+
+    
+    var auth = Buffer.from(authHeader.split(' ')[1], 'base64').toString().split(":");
+    var user = auth[0];
+    var pass = auth[1];
+
+    
+    if (user === admin && pass === process.env.AUTH_PASSWORD) {
+        res.cookie('user','admin',{signed:true});
+        next(); // Authorized
+    } else {
+        var err = new Error("Invalid credentials");
+        res.setHeader("WWW-Authenticate", "Basic");
+        err.status = 401;
+        return next(err);
+    }
+}
+
+*/
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 
