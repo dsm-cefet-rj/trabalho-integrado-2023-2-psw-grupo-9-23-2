@@ -7,6 +7,11 @@ import UploadImage from './uploadImage.jsx'
 export default function CriadorCarro() {
 
   const handleFinishedClick = () =>{
+
+    if( validateEntry() ===false)
+    {
+      return;
+    }
     console.log("hahahaha");
     const isAntigoValue = formData.isAntigo;
     if (isAntigoValue) {
@@ -17,7 +22,35 @@ export default function CriadorCarro() {
       window.location.href = '/Seminovos';
     }
   }
-  
+  function validateEntry()
+  {
+    if(isNaN(formData.valor)  || formData.valor === "")
+    {
+      alert("Por favor, insira um número para o valor do carro!");
+      return false;
+    }
+    if(isNaN(formData.km) || formData.km === "")
+    {
+      alert("Por favor, insira um valor numérico para a kilometragem do carro!");
+      return false;
+    }
+    if(formData.nome === "")
+    {
+      alert("Por favor, insira um nome para o carro!");
+      return false;
+    }
+    if(formData.imgLink === "")
+    {
+      alert("Por favor, insira uma imagem para o carro!");
+      return false;
+    }
+    if(formData.marca === "")
+    {
+      alert("Por favor, insira uma imagem para o carro!");
+      return false;
+    }
+    return true;
+  }
   const [formData, setFormData] = useState({
     isAntigo: true,
     nome: '',
@@ -68,6 +101,10 @@ export default function CriadorCarro() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if( validateEntry() ===false)
+    {
+      return;
+    }
     try {
       const newEntry = {
         ...formData
@@ -177,14 +214,24 @@ export default function CriadorCarro() {
       <br/><br/><br/>
       <UploadImage />
       <h3>Imagens disponiveis</h3>
-      {AllImages == null? "" : AllImages.map((img) => (
-          <div className='card text-center bg-light'>
-            <div className="card-header">
-              <h5 className="card-title">{ img.image }</h5>
-            </div>
-            <img src={img.image} className="card-img-top"></img>
-          </div>))       
-      }
+      <main className="flex-fill">
+        <div className="container-fluid">
+          <div className="row g-3">
+            
+              {AllImages == null? "" : AllImages.map((img) => (
+                <div className="col col-xl-2 col-lg-3 col-md-4 col-sm-6 ">
+                  <div className='card text-center bg-light'>
+                    <div className="card-header">
+                      <h5 className="card-title">{ img.image }</h5>
+                    </div>
+                    <img src={img.image} className="card-img-top"></img>
+                  </div>
+                  </div>))       
+              }
+           
+          </div>
+        </div>
+      </main>
     </div>
     
     </>

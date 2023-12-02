@@ -6,8 +6,42 @@ import { Link } from 'react-router-dom';
 
 export default function CriadorAgenda() {
   
+  function validateEntry()
+  {
+    if(formData.data == null)
+    {
+      alert("Por favor, insira um valor para a Data");
+      return false;
+    }
+    if(formData.hora == "")
+    {
+      alert("Por favor, insira um valor para a hora");
+      return false;
+    }
+    let aux = formData.hora.split(":");
+    if(aux.length == 2)
+    {
+      if(parseInt(aux[0]) < 0 || parseInt(aux[0]) > 23)
+      {
+        alert("Por favor, insira um valor válido para as horas");
+        return false;
+      }
+      else if(parseInt(aux[1]) < 0 || parseInt(aux[1]) > 59)
+      {
+        alert("Por favor, insira um valor válido para os minutos");
+        return false;
+      }
+    }
+    else
+    {
+      alert("Por favor, insira um valor para a hora no formato HH:MM");
+      return false;
+    }
+    return true;
+  }
+
   const [formData, setFormData] = useState({
-    data: '',
+    data: null,
     hora: '', 
   });
   const handleInputChange = (e) => {
@@ -35,6 +69,10 @@ export default function CriadorAgenda() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if(validateEntry() == false)
+    {
+      return;
+    }
     try {
       const newEntry = {
         ...formData,
@@ -55,7 +93,7 @@ export default function CriadorAgenda() {
         console.log('New entry created:', responseData);
 
         setFormData({
-            data: '',
+            data: null,
             hora: '', 
           });
       } else {
@@ -74,9 +112,9 @@ export default function CriadorAgenda() {
       <h2>Criar um novo horário</h2>
       <form onSubmit={handleSubmit}>        
         <div>
-          <label htmlFor="data">Data (no formato DD/MM):</label>
+          <label htmlFor="data">Data:   </label>
           <input
-            type="text"
+            type="date"
             id="data"
             name="data"
             value={formData.data}

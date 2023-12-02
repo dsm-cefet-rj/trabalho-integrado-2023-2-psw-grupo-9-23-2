@@ -7,7 +7,7 @@ const agendaSchema = new Schema({
         required: true
     },
     data:{
-        type:String,
+        type:Date,
         required: true
     },
     hora: {

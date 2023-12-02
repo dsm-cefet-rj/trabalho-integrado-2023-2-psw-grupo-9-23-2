@@ -9,6 +9,11 @@ export default function uploadImage() {
   const submitImage = async (e) => {
     e.preventDefault();
 
+    if(image == null)
+    {
+      alert("Por favor, insira uma imagem para realizar upload!");
+      return;
+    }
     const formData = new FormData();
     formData.append("image", image);
 
