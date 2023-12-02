@@ -4,7 +4,7 @@ import ImagemEscolhido from './ImagemEscolhido.jsx'
 import '/bootstrap-5.3.1-dist/css/bootstrap.css'
 import {Link} from 'react-router-dom'
 export default function CarroEscolhido(props){
-   
+   let idEscolhido = props.escolhido;
   function voltarSelecao()
     {
       props.setEsco('');

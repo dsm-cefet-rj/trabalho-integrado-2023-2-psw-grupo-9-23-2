@@ -57,7 +57,7 @@ export default function AntigosApp() {
         <div className="container">
           <div className="row g-3">
             {carrosFiltrados.map((carro, index) => (
-              <CardCarro key={index} {...carro}  setEsco = {setEsco}/>))}
+              <CardCarro key={index} {...carro} idEscolhido={escolhido} setEsco = {setEsco}/>))}
           </div>
         </div>
       </main>

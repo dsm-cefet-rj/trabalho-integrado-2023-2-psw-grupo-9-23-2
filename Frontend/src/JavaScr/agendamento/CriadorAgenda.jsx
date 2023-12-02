@@ -8,9 +8,33 @@ export default function CriadorAgenda() {
   
   function validateEntry()
   {
-    if(formData.data == null)
+    if(formData.data == "")
     {
       alert("Por favor, insira um valor para a Data");
+      return false;
+    }
+    let auxData = formData.data.split("/");
+    if(auxData.length == 3)
+    {
+      if(parseInt(auxData[1]) > 12 || parseInt(auxData[1]) < 0)
+      {
+        alert("Por favor, insira um valor válido para o mês");
+        return false;
+      }
+      else if(parseInt(auxData[2]) < 2000 || parseInt(auxData[2]) > 3000)
+      {
+        alert("Por favor, insira um valor válido para o ano");
+        return false;
+      }
+      else if(parseInt(auxData[0]) < 0 || parseInt(auxData[0]) > 31)
+      {
+        alert("Por favor, insira um valor válido para o dia");
+        return false;
+      }
+    }
+    else
+    {
+      alert("Por favor, insira um valor válido para a Data");
       return false;
     }
     if(formData.hora == "")
@@ -18,6 +42,7 @@ export default function CriadorAgenda() {
       alert("Por favor, insira um valor para a hora");
       return false;
     }
+
     let aux = formData.hora.split(":");
     if(aux.length == 2)
     {
@@ -41,7 +66,7 @@ export default function CriadorAgenda() {
   }
 
   const [formData, setFormData] = useState({
-    data: null,
+    data: "",
     hora: '', 
   });
   const handleInputChange = (e) => {
@@ -93,7 +118,7 @@ export default function CriadorAgenda() {
         console.log('New entry created:', responseData);
 
         setFormData({
-            data: null,
+            data: "",
             hora: '', 
           });
       } else {
@@ -112,9 +137,9 @@ export default function CriadorAgenda() {
       <h2>Criar um novo horário</h2>
       <form onSubmit={handleSubmit}>        
         <div>
-          <label htmlFor="data">Data:   </label>
+          <label htmlFor="data">Data: (No formato DD/MM/AAAA)</label>
           <input
-            type="date"
+            type="text"
             id="data"
             name="data"
             value={formData.data}
