@@ -29,28 +29,39 @@ import { useState } from 'react'
 
 export default function App() {
   //O que estou prestes a fazer aqui com o idCarroEscolhido e uma pessima pratica em web. Nao tentem isso em casa
+  //Dei uma separada ai nas rotas pra poder organizar visualmente as entidades, o que faz parte do usuário e o que é geral
   let [escolhido,idCarroEscolhido] = useState([]);
   return (
     <>
         <Routes>
           <Route path="/" element={<Home />} />
+
+
           <Route path="/Antigos" element={<AntigosApp idCarro={idCarroEscolhido}/>} />
           <Route path="/Seminovos" element={<SeminovoApp idCarro={idCarroEscolhido}/>} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/Signin" element={<Signin />} />
-          <Route path="/MeusDados" element={<MeusDados />} />
           <Route path="/Carro" element={<CarroEscolhido />} />
           <Route path="/Carro/ChatCarro" element={<ChatCarro idCarro={escolhido}/>} />
           <Route path="/AgendConcl" element={<AgendConcl />} />
           <Route path="/CriadorCarro" element={<CriadorCarro />} />
           <Route path="/UpdaterCarro" element={<UpdaterCarro />} />
           <Route path="/DeleterCarro" element={<DeleterCarro />} />
+
+
+          <Route path="/Login" element={<Login />} />
+          <Route path="/Signin" element={<Signin />} />
+          <Route path="/MeusDados" element={<MeusDados />} />
+
+
           <Route path="/Agendamentos" element={<ListaAgendamentos />} />
-          <Route path="/filtros-adm" element={<FiltrosAdm />} />
           <Route path="/criador-agenda" element={<CriadorAgenda />} />
-          <Route path="/DashBoard" element={<DashBoard />} />
           <Route path="/deletar-agenda" element={<DeletarAgenda />} />
           <Route path="/checar-agenda" element={<ChecarAgendamentos />} />
+
+
+          <Route path="/DashBoard" element={<DashBoard />} />
+
+
+          <Route path="/filtros-adm" element={<FiltrosAdm />} />
         </Routes>
     </>
   )

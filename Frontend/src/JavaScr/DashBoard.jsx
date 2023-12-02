@@ -66,10 +66,10 @@ import '/bootstrap-5.3.1-dist/css/bootstrap.css'
   ];
   
   const AgendamentosButtons = [
-    { text: 'Criar Horário', image: './Feather Icons/plus-circle.svg' /*'horario.png'*/,link: '/CriadorCarro' },
-    { text: 'Atualizar Horário', image: './Feather Icons/settings.svg' /*'horario.png'*/,link: '/CriadorCarro' },
-    { text: 'Apagar Horário', image: './Feather Icons/minus-circle.svg'/*'horario.png'*/,link: '/CriadorCarro' },
-    { text: 'Listar Horários', image: './Feather Icons/list.svg' /*'horario.png'*/,link: '/CriadorCarro' },
+    { text: 'Criar Horário', image: './Feather Icons/plus-circle.svg',link: '/CriadorCarro' },
+    { text: 'Atualizar Horário', image: './Feather Icons/settings.svg',link: '/CriadorCarro' },
+    { text: 'Apagar Horário', image: './Feather Icons/minus-circle.svg',link: '/CriadorCarro' },
+    { text: 'Listar Horários', image: './Feather Icons/list.svg',link: '/CriadorCarro' },
   ];
 
 
