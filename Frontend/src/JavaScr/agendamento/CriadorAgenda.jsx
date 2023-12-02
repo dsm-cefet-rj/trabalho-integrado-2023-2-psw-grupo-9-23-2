@@ -5,6 +5,21 @@ import { Link } from 'react-router-dom';
 
 
 export default function CriadorAgenda() {
+  const handleFinishedClick = () =>{
+
+    if( validateEntry() ===false)
+    {
+      return;
+    }
+    console.log("hahahaha");
+      window.location.href = '/Agendamentos';
+    
+  }
+
+
+
+
+  
   
   function validateEntry()
   {
@@ -156,7 +171,9 @@ export default function CriadorAgenda() {
             onChange={handleInputChange}
             />
         </div>
-        <button type="submit">Concluido</button>
+        <button type="submit" onClick={handleFinishedClick}>Concluido</button>
+        <button type="submit">Quero colocar mais</button>
+        
       </form>
     </div>
 

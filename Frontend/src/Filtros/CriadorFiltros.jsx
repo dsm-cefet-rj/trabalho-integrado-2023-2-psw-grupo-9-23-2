@@ -4,6 +4,9 @@ import React, {useState, useEffect} from 'react'
 import Cabecalho from '../Layout/Cabecalho';
 export default function CriadorFiltros(props)
 {
+  const handleGoBack = () => {
+    window.history.back();
+  };
     
     const [formData, setFormData] = useState({
         marca: '',
@@ -94,7 +97,7 @@ export default function CriadorFiltros(props)
     
       return (
         <>
-        
+        <button onClick={handleGoBack}>Voltar</button>
         <div>
         
         <div className='input-group mb-3'>

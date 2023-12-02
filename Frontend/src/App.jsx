@@ -18,6 +18,7 @@ import AgendConcl from './JavaScr/agendamento/AgendConcl.jsx'
 import CriadorAgenda from './JavaScr/agendamento/CriadorAgenda'
 import DeletarAgenda from './JavaScr/agendamento/DeletarAgenda'
 import ChecarAgendamentos from './JavaScr/agendamento/ChecarAgendamentos.jsx'
+import Desagendar from './JavaScr/agendamento/Desagendar.jsx'
 
 import FiltrosAdm from './Filtros/FiltrosAdm'
 
@@ -56,6 +57,7 @@ export default function App() {
           <Route path="/criador-agenda" element={<CriadorAgenda />} />
           <Route path="/deletar-agenda" element={<DeletarAgenda />} />
           <Route path="/checar-agenda" element={<ChecarAgendamentos />} />
+          <Route path="/desagendar" element={<Desagendar />} />
 
 
           <Route path="/DashBoard" element={<DashBoard />} />

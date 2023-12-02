@@ -2,9 +2,15 @@ import React, { useEffect, useState } from 'react';
 import '/bootstrap-5.3.1-dist/css/bootstrap.css';
 import Cabecalho from '../../Layout/Cabecalho.jsx';
 import CardAgendamento from './CardAgendamento.jsx';
+import { Link } from 'react-router-dom';
 
 export default function ChecarAgendamentos() {
   const [horarios, setHorarios] = useState([]);
+
+  
+  const handleGoBack = () => {
+    window.history.back();
+  };
 
   useEffect(() => {
     fetch('http://localhost:8000/horarios')
@@ -23,7 +29,9 @@ export default function ChecarAgendamentos() {
   console.log("Com dono "+ AgendamentosComDono);
   return (
     <>
+
       <Cabecalho />
+      <button onClick={handleGoBack}>Voltar</button>
       <h1>Horarios não marcados: </h1>
       <hr className="mt-3" />
       <div className="flex-fill">

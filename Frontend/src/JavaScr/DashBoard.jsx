@@ -67,7 +67,7 @@ import '/bootstrap-5.3.1-dist/css/bootstrap.css'
   
   const AgendamentosButtons = [
     { text: 'Criar Horário', image: './Feather Icons/plus-circle.svg',link: '/criador-agenda' },
-    { text: 'Atualizar Horário', image: './Feather Icons/settings.svg',link: '/CriadorCarro' },
+    { text: 'Atualizar Horário', image: './Feather Icons/settings.svg',link: '/Desagendar' },
     { text: 'Apagar Horário', image: './Feather Icons/minus-circle.svg',link: '/deletar-agenda' },
     { text: 'Listar Horários', image: './Feather Icons/list.svg',link: '/checar-agenda' },
   ];
