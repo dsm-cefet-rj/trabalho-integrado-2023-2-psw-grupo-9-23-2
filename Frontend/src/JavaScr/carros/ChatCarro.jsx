@@ -7,6 +7,13 @@ import React, { useState, useEffect } from 'react';
 export default function ChatCarro() {
 
   const [horarios, setHorarios] = useState([]);
+  const [escolhido, setEscolhido] = useState(null);
+
+  function defineEscolhido(i)
+  {
+
+    setEscolhido(i);
+  }
   
   useEffect(() => {
     fetch('http://localhost:8000/horarios')
@@ -19,6 +26,38 @@ export default function ChatCarro() {
         console.error('Error fetching data:', error);
       });
   }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      
+      const selected = horarios.filter((h)=>h.id == escolhido);
+      const updatedCarData = {
+        ...selected[0],
+        isOcupado: true
+      };
+
+      const response = await fetch(`http://localhost:8000/horarios/${escolhido}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedCarData),
+      });
+
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log('Agenda data updated:', responseData);
+        //window.location.reload();
+        window.location.href = '/AgendConcl';
+      } else {
+        console.error('Error updating car data:', response.status, response.statusText);
+      }
+    } catch (error) {
+      console.error('Error updating car data:', error);
+    }
+  };
 
   const AgendamentosFiltrados = horarios.filter((horario) => horario.isOcupado === false);
   const atualizarAtributo = (indice, atributo, novoValor) => {
@@ -48,17 +87,16 @@ export default function ChatCarro() {
         <br></br>
         <div className="row">
           {
-            AgendamentosFiltrados.map((horario, index) => (             
+            AgendamentosFiltrados.map((horario, index) => (                
                 <div className="col text-center" key={index}>
-                  <Link to="/AgendConcl">
-                    <button className="btn btn-primary btn-lg"
-                      onClick={() => atualizarAtributo(index, 'isOcupado', true)}
-                    >
-                      Dia: {horario.data}
-                      <br></br>
-                      Horário: {horario.hora}
-                    </button>
-                  </Link>
+                  <form onSubmit={handleSubmit}>
+                   
+                      <button className="btn btn-primary btn-lg" type="submit" onClick={() =>defineEscolhido(horario.id)}>
+                        Dia: {horario.data}
+                        <br></br>
+                        Horário: {horario.hora}
+                      </button>
+                  </form>
                 </div>
               
             ))
