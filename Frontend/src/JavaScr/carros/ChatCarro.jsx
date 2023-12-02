@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import React, { useState, useEffect } from 'react';
 
 
-export default function ChatCarro() {
+export default function ChatCarro(props) {
 
   const [horarios, setHorarios] = useState([]);
   const [escolhido, setEscolhido] = useState(null);
@@ -35,7 +35,8 @@ export default function ChatCarro() {
       const selected = horarios.filter((h)=>h.id == escolhido);
       const updatedCarData = {
         ...selected[0],
-        isOcupado: true
+        isOcupado: true,
+        carroRef: props.idCarro
       };
 
       const response = await fetch(`http://localhost:8000/horarios/${escolhido}`, {

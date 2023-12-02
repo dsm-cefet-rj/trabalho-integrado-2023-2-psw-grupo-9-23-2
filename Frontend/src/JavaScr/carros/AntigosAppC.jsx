@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 
 import FuncoesAdm from './FuncoesAdm.jsx'
 
-export default function AntigosApp() {
+export default function AntigosApp(props) {
   //const listaCarros = useSelector((state) => state.listaCarros);
   const [escolhido, setEsco] = useState('');
   const [carros, setCarros] = useState([]);
@@ -57,7 +57,7 @@ export default function AntigosApp() {
         <div className="container">
           <div className="row g-3">
             {carrosFiltrados.map((carro, index) => (
-              <CardCarro key={index} {...carro} idEscolhido={escolhido} setEsco = {setEsco}/>))}
+              <CardCarro key={index} {...carro} idEscolhido={escolhido} setEsco = {setEsco} idCarro ={props.idCarro}/>))}
           </div>
         </div>
       </main>

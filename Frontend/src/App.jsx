@@ -22,23 +22,25 @@ import ChecarAgendamentos from './JavaScr/agendamento/ChecarAgendamentos.jsx'
 import FiltrosAdm from './Filtros/FiltrosAdm'
 
 
-
 import DashBoard from "./JavaScr/DashBoard.jsx"
 
 import { Routes, Route } from 'react-router-dom'
+import { useState } from 'react'
 
 export default function App() {
+  //O que estou prestes a fazer aqui com o idCarroEscolhido e uma pessima pratica em web. Nao tentem isso em casa
+  let [escolhido,idCarroEscolhido] = useState([]);
   return (
     <>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Antigos" element={<AntigosApp />} />
-          <Route path="/Seminovos" element={<SeminovoApp />} />
+          <Route path="/Antigos" element={<AntigosApp idCarro={idCarroEscolhido}/>} />
+          <Route path="/Seminovos" element={<SeminovoApp idCarro={idCarroEscolhido}/>} />
           <Route path="/Login" element={<Login />} />
           <Route path="/Signin" element={<Signin />} />
           <Route path="/MeusDados" element={<MeusDados />} />
           <Route path="/Carro" element={<CarroEscolhido />} />
-          <Route path="/Carro/ChatCarro" element={<ChatCarro />} />
+          <Route path="/Carro/ChatCarro" element={<ChatCarro idCarro={escolhido}/>} />
           <Route path="/AgendConcl" element={<AgendConcl />} />
           <Route path="/CriadorCarro" element={<CriadorCarro />} />
           <Route path="/UpdaterCarro" element={<UpdaterCarro />} />

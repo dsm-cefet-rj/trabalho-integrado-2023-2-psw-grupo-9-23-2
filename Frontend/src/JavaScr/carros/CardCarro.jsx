@@ -6,6 +6,7 @@ export default function CardCarro(props){
   function escolherCarro()
     {
       props.setEsco(props.nome);
+      props.idCarro(props.id);
     }
   return(
   <>

@@ -9,7 +9,7 @@ import React, {useState, useEffect } from 'react'
 import FuncoesAdm from './FuncoesAdm.jsx'
 
 
-export default function AntigosApp() {
+export default function AntigosApp(props) {
 
   const [escolhido, setEsco] = useState('');
 
@@ -66,7 +66,7 @@ export default function AntigosApp() {
         <div className="container">
           <div className="row g-3">
             {carrosFiltrados.map((carro, index) => (
-              <CardCarro key={index} {...carro}  setEsco = {setEsco}/>))}
+              <CardCarro key={index} {...carro} idEscolhido={escolhido} setEsco = {setEsco} idCarro ={props.idCarro}/>))}
           </div>
         </div>
       </main>
