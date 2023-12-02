@@ -17,8 +17,10 @@ export default function ChecarAgendamentos() {
       });
   }, []);
 
-  const AgendamentosSemDono = horarios.filter((horario) => horario.carroRef == null);
-  const AgendamentosComDono = horarios.filter((horario) => horario.carroRef != null);
+  const AgendamentosSemDono = horarios.filter((horario) => horario.isOcupado == false);
+  const AgendamentosComDono = horarios.filter((horario) => horario.isOcupado == true);
+
+  console.log("Com dono "+ AgendamentosComDono);
   return (
     <>
       <Cabecalho />
