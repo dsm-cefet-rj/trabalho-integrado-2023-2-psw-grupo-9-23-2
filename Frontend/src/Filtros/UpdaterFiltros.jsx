@@ -1,6 +1,7 @@
 import '/bootstrap-5.3.1-dist/css/bootstrap.css'
 import React, {useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import Cabecalho from '../Layout/Cabecalho.jsx';
 
 
 export default function UpdaterFiltros(props) {
@@ -100,6 +101,8 @@ export default function UpdaterFiltros(props) {
   
     return (
     <>
+      <Cabecalho></Cabecalho>
+      <button onClick={handleGoBack}>Voltar</button>
         <div>
         <div>
           <select value={selectedFilId || ''} onChange={handleCarChange} className='form-select'>

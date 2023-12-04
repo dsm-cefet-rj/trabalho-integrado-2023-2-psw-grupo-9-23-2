@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '/bootstrap-5.3.1-dist/css/bootstrap.css'
+import Cabecalho from '../Layout/Cabecalho.jsx';
 
 export default function DeleterFiltros(props) {
     const [filtros, setFiltros] = useState([]);
@@ -64,7 +65,9 @@ export default function DeleterFiltros(props) {
 
   return (
     <>
+    <Cabecalho></Cabecalho>
     <div>
+      <button onClick={handleGoBack}>Voltar</button>
       <div>
         
         <select value={selectedFiltroId || ''} onChange={handleCarChange}  className='form-control'>

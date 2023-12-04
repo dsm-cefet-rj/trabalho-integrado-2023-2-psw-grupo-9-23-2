@@ -59,10 +59,10 @@ import '/bootstrap-5.3.1-dist/css/bootstrap.css'
   ];
   
   const FiltrosButtons = [
-    { text: 'Criar Filtro', image: './Feather Icons/plus-circle.svg',link: '/CriadorCarro' },
-    { text: 'Atualizar Filtro', image: './Feather Icons/settings.svg' ,link: '/CriadorCarro'},
-    { text: 'Apagar Filtro', image: './Feather Icons/minus-circle.svg',link: '/CriadorCarro' },
-    { text: 'Listar Filtros', image: './Feather Icons/list.svg' ,link: '/CriadorCarro'},
+    { text: 'Criar Filtro', image: './Feather Icons/plus-circle.svg',link: '/CriadorFiltro' },
+    { text: 'Atualizar Filtro', image: './Feather Icons/settings.svg' ,link: '/UpdaterFiltro'},
+    { text: 'Apagar Filtro', image: './Feather Icons/minus-circle.svg',link: '/DeleterFiltro' },
+    { text: 'Listar Filtros', image: './Feather Icons/list.svg' ,link: '/ReaderFiltros'},
   ];
   
   const AgendamentosButtons = [

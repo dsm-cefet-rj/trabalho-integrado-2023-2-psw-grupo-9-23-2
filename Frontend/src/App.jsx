@@ -23,6 +23,11 @@ import Desagendar from './JavaScr/agendamento/Desagendar.jsx'
 import FiltrosAdm from './Filtros/FiltrosAdm'
 
 
+import CriadorFiltros from './Filtros/CriadorFiltros.jsx'
+import UpdaterFiltros from './Filtros/UpdaterFiltros.jsx'
+import DeleterFiltros from './Filtros/DeleterFiltros.jsx'
+import ReaderFiltros from './Filtros/ReaderFiltros.jsx'
+
 import DashBoard from "./JavaScr/DashBoard.jsx"
 
 import { Routes, Route } from 'react-router-dom'
@@ -64,6 +69,10 @@ export default function App() {
 
 
           <Route path="/filtros-adm" element={<FiltrosAdm />} />
+          <Route path="/DeleterFiltro" element={<DeleterFiltros />} />
+          <Route path="/UpdaterFiltro" element={<UpdaterFiltros />} />
+          <Route path="/CriadorFiltro" element={<CriadorFiltros />} />
+          <Route path="/ReaderFiltros" element={<ReaderFiltros />} />
         </Routes>
     </>
   )

@@ -51,8 +51,7 @@ export default function AntigosApp(props) {
   {
     return (
     <>
-      <Cabecalho />
-      <FuncoesAdm />
+      <Cabecalho></Cabecalho>
       <h2>Escolha o carro de sua preferência:</h2>
       <hr mt-3></hr>
       <Formulario 

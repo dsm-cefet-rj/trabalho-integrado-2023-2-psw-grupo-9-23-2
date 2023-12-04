@@ -97,6 +97,7 @@ export default function CriadorFiltros(props)
     
       return (
         <>
+        <Cabecalho></Cabecalho>
         <button onClick={handleGoBack}>Voltar</button>
         <div>
         
